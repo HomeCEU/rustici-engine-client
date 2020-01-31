@@ -4145,7 +4145,6 @@ class DispatchApi
      */
     public function getDispatchZipWithHttpInfo($engine_tenant_name, $dispatch_id, $type = null)
     {
-        $returnType = 'string';
         $request = $this->getDispatchZipRequest($engine_tenant_name, $dispatch_id, $type);
 
         try {
@@ -4177,17 +4176,10 @@ class DispatchApi
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
+            $content = $responseBody;
 
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
+                ObjectSerializer::deserialize($content, \SplFileObject::class, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
