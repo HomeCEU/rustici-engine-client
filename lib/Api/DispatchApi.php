@@ -4179,7 +4179,7 @@ class DispatchApi
             $content = $responseBody;
 
             return [
-                ObjectSerializer::deserialize($content, \SplFileObject::class, []),
+                ObjectSerializer::deserialize($content, "\SplFileObject", []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
