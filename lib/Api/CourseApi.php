@@ -1291,7 +1291,7 @@ class CourseApi
         }
         // query params
         if ($may_create_new_version !== null) {
-            $queryParams['mayCreateNewVersion'] = ObjectSerializer::toQueryValue($may_create_new_version);
+            $queryParams['mayCreateNewVersion'] = $may_create_new_version ? "true" : "false";
         }
         // header params
         if ($engine_tenant_name !== null) {
@@ -5754,7 +5754,7 @@ class CourseApi
         }
         // query params
         if ($may_create_new_version !== null) {
-            $queryParams['mayCreateNewVersion'] = ObjectSerializer::toQueryValue($may_create_new_version);
+            $queryParams['mayCreateNewVersion'] = $may_create_new_version ? "true" : "false";
         }
         // query params
         if ($dry_run !== null) {
@@ -6935,7 +6935,7 @@ class CourseApi
         }
         // query params
         if ($may_create_new_version !== null) {
-            $queryParams['mayCreateNewVersion'] = ObjectSerializer::toQueryValue($may_create_new_version);
+            $queryParams['mayCreateNewVersion'] = $may_create_new_version ? "true" : "false";
         }
         // query params
         if ($dry_run !== null) {
