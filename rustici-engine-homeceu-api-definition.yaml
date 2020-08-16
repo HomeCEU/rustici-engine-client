@@ -44,6 +44,9 @@ securityDefinitions:
       'delete:xapipipe': Grants deletion access to xapi pipe resources
       'configure:server': Includes server administrator settings when managing configuration
       'request:secrets': Grants read access to encrypted configuration settings
+      'write:player': Grants write access to the player resources
+      'read:player': Grants read access to the player resources
+      'read:contentVault': Grants read access to the content vault resources
 schemes:
   - http
   - https
@@ -79,6 +82,7 @@ parameters:
       - AICC
       - XAPI
       - CMI5
+      - LTI11
   includeMetadata:
     name: includeMetadata
     in: query
@@ -177,6 +181,12 @@ parameters:
     in: formData
     description: The course content file to import.
     type: file
+  contentMetadata:
+    name: contentMetadata
+    in: formData
+    description: Serialized 'mediaFileMetadata' schema.
+    type: string
+    required: false
   uploadedContentType:
     name: uploadedContentType
     in: header
@@ -198,6 +208,42 @@ parameters:
     default: false
     type: boolean
     description: Include course metadata in the results
+  updateAssetPolicy:
+    name: updateAssetPolicy
+    in: query
+    type: string
+    default: lax
+    description: >-
+      Describes how Engine should handle importing asset files with respect to
+      overwriting files. Valid values are 'reject', 'strict', and 'lax'. A
+      'reject' policy request will fail if the asset file already exists on the
+      system ('overwriting' not allowed). A 'strict' policy request will fail if
+      the asset file does not already exist ('overwriting' is required). A 'lax'
+      policy request will not consider whether the file already exists (i.e., it
+      will attempt to import in all cases).
+  destination:
+    name: destination
+    in: formData
+    description: >-
+      Path, relative to the course's Content Directory, that indicates where to
+      store the uploaded asset file.
+    type: string
+    required: true
+  exportTypeGet:
+    name: exportType
+    in: query
+    required: true
+    type: string
+    enum:
+      - OFFLINE
+  exportTypeDelete:
+    name: exportType
+    in: query
+    required: true
+    type: string
+    enum:
+      - ALL
+      - OFFLINE
   dispatchId:
     name: dispatchId
     in: path
@@ -208,6 +254,12 @@ parameters:
     in: path
     required: true
     type: string
+  externalConfig:
+    name: externalConfig
+    in: query
+    required: true
+    type: string
+    description: External configuration object
   registrationId:
     name: registrationId
     in: path
@@ -1025,6 +1077,52 @@ paths:
             - delete
             - 'delete:course'
         - basic: []
+  '/courses/{courseId}/zip':
+    parameters:
+      - $ref: '#/parameters/tenant'
+      - $ref: '#/parameters/courseId'
+    get:
+      parameters:
+        - $ref: '#/parameters/exportTypeGet'
+      summary: Get the zip package for the latest course version
+      tags:
+        - course
+      operationId: GetCourseZip
+      produces:
+        - application/zip
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: file
+        '400':
+          $ref: '#/responses/BadRequest'
+        '404':
+          description: '`courseId` not found'
+          schema:
+            $ref: '#/definitions/MessageSchema'
+      security:
+        - oauth:
+            - read
+            - 'read:course'
+        - basic: []
+    delete:
+      parameters:
+        - $ref: '#/parameters/exportTypeDelete'
+      tags:
+        - course
+      summary: Deletes the exported zip for the latest version of the specified course
+      operationId: DeleteCourseZip
+      responses:
+        '204':
+          description: Course zip deleted successfully
+        '400':
+          $ref: '#/responses/BadRequest'
+      security:
+        - oauth:
+            - delete
+            - 'delete:course'
+        - basic: []
   '/courses/{courseId}/xAPIStatements':
     parameters:
       - $ref: '#/parameters/tenant'
@@ -1127,6 +1225,53 @@ paths:
           description: '`courseId` version `versionId` not found'
           schema:
             $ref: '#/definitions/MessageSchema'
+      security:
+        - oauth:
+            - delete
+            - 'delete:course'
+        - basic: []
+  '/courses/{courseId}/versions/{versionId}/zip':
+    parameters:
+      - $ref: '#/parameters/tenant'
+      - $ref: '#/parameters/courseId'
+      - $ref: '#/parameters/versionId'
+    get:
+      parameters:
+        - $ref: '#/parameters/exportTypeGet'
+      summary: Get the zip package for the specified course version
+      tags:
+        - course
+      operationId: GetVersionedCourseZip
+      produces:
+        - application/zip
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: file
+        '400':
+          $ref: '#/responses/BadRequest'
+        '404':
+          description: '`courseId` not found or not exported for offline use'
+          schema:
+            $ref: '#/definitions/MessageSchema'
+      security:
+        - oauth:
+            - read
+            - 'read:course'
+        - basic: []
+    delete:
+      parameters:
+        - $ref: '#/parameters/exportTypeDelete'
+      tags:
+        - course
+      summary: Deletes the exported zip for the specified course version
+      operationId: DeleteVersionedCourseZip
+      responses:
+        '204':
+          description: Course zip deleted successfully
+        '400':
+          $ref: '#/responses/BadRequest'
       security:
         - oauth:
             - delete
@@ -1329,6 +1474,7 @@ paths:
         - $ref: '#/parameters/importCourseId'
         - $ref: '#/parameters/mayCreateNewVersion'
         - $ref: '#/parameters/importFile'
+        - $ref: '#/parameters/contentMetadata'
         - $ref: '#/parameters/uploadedContentType'
       responses:
         '200':
@@ -1346,6 +1492,9 @@ paths:
             - write
             - 'write:course'
         - basic: []
+  /courses/importJobs/noUpload:
+    parameters:
+      - $ref: '#/parameters/tenant'
   /courses/importJobs:
     parameters:
       - $ref: '#/parameters/tenant'
@@ -1464,6 +1613,7 @@ paths:
         - $ref: '#/parameters/mayCreateNewVersion'
         - $ref: '#/parameters/importDryRun'
         - $ref: '#/parameters/importFile'
+        - $ref: '#/parameters/contentMetadata'
         - $ref: '#/parameters/uploadedContentType'
       responses:
         '200':
@@ -1474,6 +1624,134 @@ paths:
           $ref: '#/responses/BadRequest'
         '409':
           description: 'conflict, `courseId` exists and `mayCreateNewVersion` is false'
+          schema:
+            $ref: '#/definitions/MessageSchema'
+      security:
+        - oauth:
+            - write
+            - 'write:course'
+        - basic: []
+  '/courses/{courseId}/asset':
+    parameters:
+      - $ref: '#/parameters/tenant'
+    post:
+      summary: Import an asset file for this course.
+      tags:
+        - course
+      operationId: ImportCourseAssetFile
+      parameters:
+        - $ref: '#/parameters/courseId'
+        - $ref: '#/parameters/updateAssetPolicy'
+        - name: assetSchema
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ImportAssetRequestSchema'
+      responses:
+        '200':
+          description: The imported file and its destination path
+          schema:
+            $ref: '#/definitions/AssetFileSchema'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '404':
+          description: '`courseId` not found'
+          schema:
+            $ref: '#/definitions/MessageSchema'
+      security:
+        - oauth:
+            - write
+            - 'write:course'
+        - basic: []
+  '/courses/{courseId}/asset/upload':
+    parameters:
+      - $ref: '#/parameters/tenant'
+    post:
+      summary: Upload an asset file for this course.
+      tags:
+        - course
+      operationId: UploadCourseAssetFile
+      consumes:
+        - multipart/form-data
+      parameters:
+        - $ref: '#/parameters/courseId'
+        - $ref: '#/parameters/importFile'
+        - $ref: '#/parameters/destination'
+        - $ref: '#/parameters/updateAssetPolicy'
+      responses:
+        '200':
+          description: The imported file and its destination path
+          schema:
+            $ref: '#/definitions/AssetFileSchema'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '404':
+          description: '`courseId` version `versionId` not found'
+          schema:
+            $ref: '#/definitions/MessageSchema'
+      security:
+        - oauth:
+            - write
+            - 'write:course'
+        - basic: []
+  '/courses/{courseId}/versions/{versionId}/asset':
+    parameters:
+      - $ref: '#/parameters/tenant'
+    post:
+      summary: Import an asset file for this course version.
+      tags:
+        - course
+      operationId: ImportCourseVersionAssetFile
+      parameters:
+        - $ref: '#/parameters/courseId'
+        - $ref: '#/parameters/versionId'
+        - $ref: '#/parameters/updateAssetPolicy'
+        - name: assetSchema
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ImportAssetRequestSchema'
+      responses:
+        '200':
+          description: The imported file and its destination path
+          schema:
+            $ref: '#/definitions/AssetFileSchema'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '404':
+          description: '`courseId` not found'
+          schema:
+            $ref: '#/definitions/MessageSchema'
+      security:
+        - oauth:
+            - write
+            - 'write:course'
+        - basic: []
+  '/courses/{courseId}/versions/{versionId}/asset/upload':
+    parameters:
+      - $ref: '#/parameters/tenant'
+    post:
+      summary: Upload an asset file for this course version.
+      tags:
+        - course
+      operationId: UploadCourseVersionAssetFile
+      consumes:
+        - multipart/form-data
+      parameters:
+        - $ref: '#/parameters/courseId'
+        - $ref: '#/parameters/versionId'
+        - $ref: '#/parameters/importFile'
+        - $ref: '#/parameters/destination'
+        - $ref: '#/parameters/updateAssetPolicy'
+      responses:
+        '200':
+          description: The imported file and its destination path
+          schema:
+            $ref: '#/definitions/AssetFileSchema'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '404':
+          description: '`courseId` version `versionId` not found'
           schema:
             $ref: '#/definitions/MessageSchema'
       security:
@@ -1733,6 +2011,70 @@ paths:
             - read
             - 'read:dispatch'
         - basic: []
+  '/dispatch/dispatches/{dispatchId}/launches':
+    parameters:
+      - $ref: '#/parameters/externalConfig'
+    get:
+      summary: Launch this dispatch using the IMS LTI 1.3 specification.
+      tags:
+        - dispatch
+      operationId: GetLti13DispatchLaunch
+      parameters:
+        - $ref: '#/parameters/dispatchId'
+        - name: learnerId
+          in: query
+          required: true
+          type: string
+        - name: learnerFullName
+          in: query
+          required: false
+          type: string
+        - name: redirectOnExitUrl
+          in: query
+          required: false
+          type: string
+        - name: ltiOutcomeInfo
+          in: query
+          required: false
+          type: string
+      responses:
+        '200':
+          description: ''
+        '400':
+          $ref: '#/responses/BadRequest'
+        '404':
+          description: '`dispatchId` not found'
+          schema:
+            $ref: '#/definitions/MessageSchema'
+      security: []
+  '/dispatch/dispatches/{dispatchId}/lti13':
+    parameters:
+      - $ref: '#/parameters/tenant'
+    get:
+      summary: >-
+        Get the information necessary to import this dispatch as a resource link
+        according to the IMS LTI 1.3 specification.
+      tags:
+        - dispatch
+      operationId: GetLti13Dispatch
+      parameters:
+        - $ref: '#/parameters/dispatchId'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/DispatchLti13InfoSchema'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '404':
+          description: '`dispatchId` not found'
+          schema:
+            $ref: '#/definitions/MessageSchema'
+      security:
+        - oauth:
+            - read
+            - 'read:dispatch'
+        - basic: []
   '/dispatch/dispatches/{dispatchId}/launchPage':
     parameters:
       - $ref: '#/parameters/tenant'
@@ -1808,7 +2150,7 @@ paths:
             - 'read:dispatch'
         - basic: []
     post:
-      summary: Create multiple destinations
+      summary: Create one or more destinations
       tags:
         - dispatch
       operationId: CreateDestinations
@@ -1854,7 +2196,7 @@ paths:
             - 'read:dispatch'
         - basic: []
     put:
-      summary: Create or update the destination with id `destinationId`
+      summary: Update the destination with id `destinationId`
       tags:
         - dispatch
       operationId: SetDestination
@@ -1999,6 +2341,215 @@ paths:
             - write
             - 'write:dispatch'
         - basic: []
+  '/dispatch/destinations/{destinationId}/lti13':
+    parameters:
+      - $ref: '#/parameters/tenant'
+      - $ref: '#/parameters/destinationId'
+    get:
+      summary: >-
+        Get the information needed to configure a LTI 1.3 platform with the
+        destination id `destinationId`
+      tags:
+        - dispatch
+      operationId: GetLti13ToolConfigurationSchema
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Lti13ToolConfigurationSchema'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '404':
+          description: '`destinationId` not found'
+          schema:
+            $ref: '#/definitions/MessageSchema'
+      security:
+        - oauth:
+            - read
+            - 'read:dispatch'
+        - basic: []
+  '/dispatch/destinations/{destinationId}/jwks':
+    parameters:
+      - $ref: '#/parameters/externalConfig'
+      - $ref: '#/parameters/destinationId'
+    get:
+      summary: Get JSON Web Key Set
+      description: Returns a JSON Web Key Set for given destination
+      tags:
+        - dispatch
+      operationId: GetToolJsonWebKeySet
+      responses:
+        '200':
+          description: JSON Web Key Set
+          schema:
+            $ref: '#/definitions/JsonWebKeySetSchema'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '404':
+          description: '`destinationId` not found'
+          schema:
+            $ref: '#/definitions/MessageSchema'
+      security: []
+  '/dispatch/destinations/{destinationId}/rotateKeys':
+    parameters:
+      - $ref: '#/parameters/tenant'
+      - $ref: '#/parameters/destinationId'
+    post:
+      summary: Rotate RSA Keys
+      description: Rotates the destination's RSA Key Pair
+      parameters:
+        - name: RotateKeys
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RotateKeysSchema'
+      tags:
+        - dispatch
+      operationId: PostRotateToolKeys
+      responses:
+        '204':
+          description: Keys generated and updated successfully
+        '400':
+          $ref: '#/responses/BadRequest'
+      security:
+        - basic: []
+        - oauth:
+            - write
+            - 'write:dispatch'
+  '/dispatch/destinations/{destinationId}/oidcLoginInitiation':
+    parameters:
+      - $ref: '#/parameters/externalConfig'
+      - $ref: '#/parameters/destinationId'
+    get:
+      summary: Initiate an OIDC Login flow for the destination with id `destinationId`
+      tags:
+        - dispatch
+      operationId: GetLti13OidcLoginInitiation
+      parameters:
+        - name: login_hint
+          in: query
+          required: true
+          type: string
+          description: Tool-opaque login identifier
+        - name: iss
+          in: query
+          required: true
+          type: string
+          description: Issuer identifying the learning platform
+        - name: target_link_uri
+          in: query
+          required: true
+          type: string
+          description: Endpoint to be at the end of the OIDC authentication flow.
+        - name: lti_message_hint
+          in: query
+          required: false
+          type: string
+          description: Tool-opaque login identifier
+        - name: lti_deployment_id
+          in: query
+          required: false
+          type: string
+          description: >-
+            Deployment id that would be passed in the
+            https://purl.imsglobal.org/spec/lti/claim/deployment_id claim in an
+            OIDC Authorization Response
+        - name: client_id
+          in: query
+          required: false
+          type: string
+          description: >-
+            Client id that should be used to authorize the subsequent LTI
+            message request.
+      responses:
+        '200':
+          description: Request sent successfully
+        '400':
+          $ref: '#/responses/BadRequest'
+        '404':
+          description: '`destinationId` not found'
+          schema:
+            $ref: '#/definitions/MessageSchema'
+      security: []
+    post:
+      summary: Initiate an OIDC Login flow for the destination with id `destinationId`
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - name: login_hint
+          in: formData
+          required: true
+          type: string
+          description: Tool-opaque login identifier
+        - name: iss
+          in: formData
+          required: true
+          type: string
+          description: Issuer identifying the learning platform
+        - name: target_link_uri
+          in: formData
+          required: true
+          type: string
+          description: Endpoint to be at the end of the OIDC authentication flow.
+        - name: lti_message_hint
+          in: formData
+          required: false
+          type: string
+          description: Tool-opaque login identifier
+        - name: lti_deployment_id
+          in: formData
+          required: false
+          type: string
+          description: >-
+            deployment id that would be passed in the
+            https://purl.imsglobal.org/spec/lti/claim/deployment_id claim in an
+            OIDC Authorization Response
+        - name: client_id
+          in: formData
+          required: false
+          type: string
+          description: >-
+            Client id that should be used to authorize the subsequent LTI
+            message request.
+      tags:
+        - dispatch
+      operationId: PostLti13OidcLoginInitiation
+      responses:
+        '200':
+          description: Request sent successfully
+        '400':
+          $ref: '#/responses/BadRequest'
+      security: []
+  '/dispatch/destinations/{destinationId}/launches':
+    parameters:
+      - $ref: '#/parameters/externalConfig'
+      - $ref: '#/parameters/destinationId'
+    post:
+      summary: >-
+        Process an LTI 1.3 OIDC Authorization Response for the destination with
+        id `destinationId`
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - name: id_token
+          in: formData
+          required: true
+          type: string
+          description: JWT with claims specified by LTI 1.3 spec
+        - name: state
+          in: formData
+          required: true
+          type: string
+          description: State information passed to platform from OIDC Authorization Request
+      tags:
+        - dispatch
+      operationId: PostLti13AuthorizationResponse
+      responses:
+        '200':
+          description: Redirected to specified target_link_uri successfully
+        '400':
+          $ref: '#/responses/BadRequest'
+      security: []
   '/dispatch/destinations/{destinationId}/registrationCount':
     parameters:
       - $ref: '#/parameters/tenant'
@@ -2656,6 +3207,32 @@ paths:
             - write
             - 'write:registration'
         - basic: []
+  /registrations/withLaunchLink:
+    parameters:
+      - $ref: '#/parameters/tenant'
+    post:
+      summary: Creates a registration and returns the link to use to launch it
+      tags:
+        - registration
+      operationId: CreateRegistrationWithLaunchLink
+      parameters:
+        - name: createRequest
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CreateRegistrationWithLaunchLinkSchema'
+      responses:
+        '200':
+          description: The launch link
+          schema:
+            $ref: '#/definitions/LaunchLinkSchema'
+        '400':
+          $ref: '#/responses/BadRequest'
+      security:
+        - oauth:
+            - write
+            - 'write:registration'
+        - basic: []
   /registrations/byId:
     parameters:
       - $ref: '#/parameters/tenant'
@@ -2742,6 +3319,27 @@ paths:
             - write
             - 'write:registration'
         - basic: []
+  /registrations/ltiBasicOutcomes:
+    post:
+      summary: Endpoint for LTI basic outcomes
+      tags:
+        - registration
+      operationId: ltiBasicOutcomes
+      consumes:
+        - application/xml
+      produces:
+        - application/xml
+      parameters:
+        - name: outcomesRequest
+          in: body
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Outcomes Response
+          schema:
+            type: string
   /xapi/credentials:
     parameters:
       - $ref: '#/parameters/tenant'
@@ -2934,11 +3532,9 @@ paths:
         Either edits an existing xAPI statement pipe or creates a new one,
         specified by id `statementPipeId`
       description: >-
-        Editing a statement pipe will cause it to start over and forward any
-        statements it finds, even if the prior version of the pipe had already
-        forwarded those statements. If the statement pipe being edited is
-        currently being processed, the this request will fail with a status code
-        of 409.
+        Editing a statement pipe's url will cause it to start over and forward
+        any statements it finds, even if the prior version of the pipe had
+        already forwarded those statements.
       tags:
         - xapi
       operationId: SetStatementPipe
@@ -3000,6 +3596,11 @@ paths:
       tags:
         - contentConnectors
       operationId: GetConnectorsList
+      parameters:
+        - name: includeAdditionalInstanceInformation
+          in: query
+          required: false
+          type: boolean
       responses:
         '200':
           description: List of connectors
@@ -3203,6 +3804,97 @@ paths:
             - read
             - 'read:connectorContent'
         - basic: []
+  /player/configuration:
+    parameters:
+      - $ref: '#/parameters/tenant'
+    post:
+      tags:
+        - player
+      summary: Returns player configuration
+      operationId: BuildPlayerConfiguration
+      produces:
+        - application/javascript
+      parameters:
+        - name: PlayerConfigurationSchema
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/PlayerConfigurationSchema'
+      responses:
+        '200':
+          description: Player configuration generated successfully
+          schema:
+            $ref: '#/definitions/PlayerConfigurationResultsSchema'
+        '400':
+          $ref: '#/responses/BadRequest'
+      security:
+        - oauth:
+            - read
+            - 'read:player'
+  /player/results:
+    post:
+      tags:
+        - player
+      summary: Endpoint for player to send results
+      parameters:
+        - $ref: '#/parameters/tenant'
+        - name: PlayerResultsSchema
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/PlayerResultsSchema'
+      operationId: PostPlayerResults
+      responses:
+        '204':
+          description: Results submitted successfully
+        '400':
+          $ref: '#/responses/BadRequest'
+      security:
+        - oauth:
+            - write
+            - 'write:player'
+  /player/zip:
+    parameters:
+      - $ref: '#/parameters/optionalTenant'
+      - name: player
+        in: query
+        default: modern
+        type: string
+        enum:
+          - MODERN
+          - LEGACY
+    get:
+      tags:
+        - player
+      summary: Gets the customized player files for this system
+      operationId: GetPlayerZip
+      produces:
+        - application/zip
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: file
+        '400':
+          $ref: '#/responses/BadRequest'
+      security:
+        - oauth:
+            - read
+            - 'read:player'
+    delete:
+      tags:
+        - player
+      summary: Deletes the current exported player zip
+      operationId: DeletePlayerZip
+      responses:
+        '204':
+          description: Player zip deleted successfully
+        '400':
+          $ref: '#/responses/BadRequest'
+      security:
+        - oauth:
+            - write
+            - 'write:player'
 responses:
   BadRequest:
     description: bad request
@@ -3264,12 +3956,28 @@ definitions:
         type: array
         items:
           type: string
+  PlayerInfoSchema:
+    title: playerInfoSchema
+    type: object
+    properties:
+      exportedHash:
+        type: string
+  AboutPlayerSchema:
+    title: aboutPlayerSchema
+    type: object
+    properties:
+      modern:
+        $ref: '#/definitions/PlayerInfoSchema'
+      legacy:
+        $ref: '#/definitions/PlayerInfoSchema'
   AboutSchema:
     title: aboutSchema
     type: object
     properties:
       version:
         type: string
+      player:
+        $ref: '#/definitions/AboutPlayerSchema'
       platform:
         type: string
       distribution:
@@ -3283,8 +3991,10 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ConnectorTypeSchema'
-      reportingPlugin:
-        $ref: '#/definitions/ReportingPluginSchema'
+      plugins:
+        type: array
+        items:
+          $ref: '#/definitions/PluginInformationSchema'
       validScopes:
         type: array
         items:
@@ -3340,30 +4050,20 @@ definitions:
         description: >-
           Is there an enabled instance of this connector for the specified
           tenant (or at the system level)
-  ReportingPluginSchema:
-    title: ReportingPluginSchema
-    description: Describes the installed reporting plugin.
+  PluginInformationSchema:
+    title: PluginInformationSchema
+    description: Describes the installed plugin.
     type: object
     properties:
       pluginType:
         type: string
-        description: type of reporting plugin
+        description: type of plugin
       version:
         $ref: '#/definitions/PluginVersionSchema'
-      organizationId:
-        type: integer
-        format: int32
-      pipeId:
-        type: string
-      enabled:
-        type: boolean
-        description: >-
-          Is there an enabled instance of this connector for the specified
-          tenant
       installed:
         type: boolean
-        default: false
-        description: Is the Reporting plugin configured and installed
+      info:
+        type: object
     required:
       - pluginType
   PluginVersionSchema:
@@ -3704,6 +4404,11 @@ definitions:
           - AICC
           - XAPI
           - CMI5
+          - LTI11
+          - LTI13
+      launchable:
+        type: boolean
+        default: true
       connector:
         $ref: '#/definitions/CourseConnectorSchema'
       metadata:
@@ -3780,8 +4485,9 @@ definitions:
     title: importRequestSchema
     description: >-
       Request to import a new course. Exactly one of fetchRequest,
-      referenceRequest, or adHocReferenceRequest must be supplied, depending on
-      the desired import behavior.
+      referenceRequest, mediaFileReferenceRequest, connectorReferenceRequest,
+      adHocReferenceRequest, or lti11LinkReferenceRequest must be supplied,
+      depending on the desired import behavior.
     type: object
     properties:
       fetchRequest:
@@ -3794,6 +4500,10 @@ definitions:
         $ref: '#/definitions/ImportConnectorRequestSchema'
       adHocReferenceRequest:
         $ref: '#/definitions/ImportAdHocReferenceRequestSchema'
+      lti11LinkReferenceRequest:
+        $ref: '#/definitions/ImportLti11LinkReferenceRequestSchema'
+      lti13LinkReferenceRequest:
+        $ref: '#/definitions/ImportLti13LinkReferenceRequestSchema'
   ImportFetchRequestSchema:
     title: importFetchRequestSchema
     description: Request to import a course by fetching it from a url
@@ -3832,6 +4542,46 @@ definitions:
     required:
       - url
       - contentType
+  ImportLti11LinkReferenceRequestSchema:
+    title: importLti11LinkReferenceRequestSchema
+    description: Request to import an LTI link
+    type: object
+    properties:
+      url:
+        description: Launch URL of the tool provider
+        type: string
+      key:
+        description: Consumer key credential to access LTI link
+        type: string
+      sharedSecret:
+        description: Consumer secret credential to access LTI link
+        type: string
+      title:
+        description: Title for the referenced link
+        type: string
+      ltiLinkMetadata:
+        $ref: '#/definitions/LtiLinkMetadataSchema'
+    required:
+      - key
+      - sharedSecret
+      - url
+      - title
+  ImportLti13LinkReferenceRequestSchema:
+    title: importLti13LinkReferenceRequestSchema
+    description: Request to import an LTI 1.3 link
+    type: object
+    properties:
+      url:
+        description: Launch URL of the resource link
+        type: string
+      title:
+        description: Title for the referenced link
+        type: string
+      ltiLinkMetadata:
+        $ref: '#/definitions/LtiLinkMetadataSchema'
+    required:
+      - title
+      - url
   ImportReferenceRequestSchema:
     title: importReferenceRequestSchema
     description: >-
@@ -3860,29 +4610,97 @@ definitions:
       connectorIdForContent:
         description: The id the connector provides to identify this content.
         type: string
+      metadataForConnector:
+        description: 'The metadata for this connector, format is implementation specific'
+        type: object
     required:
       - connectorId
-      - connectorIdForContent
+  LtiLinkMetadataSchema:
+    title: ltiLinkMetadataSchema
+    description: >-
+      Schema that defines optional metadata values for LTI 1.1 and 1.3 link
+      content
+    type: object
+    properties:
+      description:
+        description: Description of the referenced link's content
+        type: string
+      context:
+        description: >-
+          Schema that defines the context (group of related content, such as a
+          course) the link being imported belongs to
+        type: object
+        properties:
+          contextId:
+            description: >-
+              Unique, opaque identifier for the context. For LTI 1.3, this
+              identifier must not exceed 255 ASCII characters and must be
+              provided if any other context claims are also provided.
+            type: string
+          contextTitle:
+            description: Title for the context
+            type: string
+          contextLabel:
+            description: 'Short identifier for the context, such as a course code'
+            type: string
+          contextType:
+            description: >
+              The type of context the referenced link belongs to. Per LTI
+              specifications, if this parameter is present the array must
+              include at least one known context type for that LTI version. It
+              may include other context types but by best practice they should
+              be fully-qualified URNs (for LTI 1.1) or fully-qualified URIs (for
+              LTI 1.3). Valid context type values for LTI 1.1 are:
+              urn:lti:context-type:ims/lis/CourseOffering, CourseOffering,
+              urn:lti:context-type:ims/lis/CourseSection, CourseSection,
+              urn:lti:context-type:ims/lis/CourseTemplate, CourseTemplate,
+              urn:lti:context-type:ims/lis/Group, Group. Valid context type
+              values for LTI 1.3 are
+              http://purl.imsglobal.org/vocab/lis/v2/course#CourseOffering,
+              http://purl.imsglobal.org/vocab/lis/v2/course#CourseSection,
+              http://purl.imsglobal.org/vocab/lis/v2/course#CourseTemplate,
+              http://purl.imsglobal.org/vocab/lis/v2/course#Group.
+            type: array
+            items:
+              type: string
+      customParameters:
+        description: >-
+          Custom parameters that will be included with the launch of the link.
+          Per LTI specifications, if importing a version 1.1 link, the keys will
+          be mapped to lowercase and all non-alphanumeric characters will be
+          replaced with `_`
+        type: array
+        items:
+          $ref: '#/definitions/ItemValuePairSchema'
   MediaFileMetadataSchema:
     title: mediaFileMetadataSchema
-    description: Schema that indicates metadata values for media file content
+    description: >-
+      Schema that includes metadata properties that can be used during course
+      import. Note: this schema has an unfortunate name. Originally, this schema
+      was only associated with Media File content; however, it has since been
+      applied to other import resources. The type name wasn't changed to protect
+      against regression conflicts.
     type: object
     properties:
       title:
-        description: Title for the referenced course content
+        description: Title for the referenced course content.
         type: string
       description:
-        description: Description of the referenced course content
+        description: >-
+          Description of the referenced course content. For media file content,
+          the default value is an empty string.
         type: string
       contentLanguage:
         description: >-
-          Language code that specifies the content's language. The default value
-          is 'en'.
+          Language code that specifies the content's language. For media file
+          content, the default value is 'en'.
         type: string
       moveOn:
         description: >-
           Value of the cmi5 'moveOn' property for the referenced course content.
-          The default value is 'Completed'.
+          For media file content, the default value is 'Completed'. This
+          property is only applicable with the following learning standards:
+          cmi5, MediaFile.
         type: string
       estimatedDuration:
         description: Estimated number of seconds required to complete the course.
@@ -3892,10 +4710,19 @@ definitions:
         description: >-
           The IRI activity type of the media content. If not provided,
           reasonable default values will be assumed based on the content's
-          'contentType'.
+          'contentType'. This property is only applicable with the following
+          learning standards: MediaFile.
+        type: string
+      xAPIActivityId:
+        description: >-
+          The xAPI activity ID associated with this course. This property is
+          only applicable with the following learning standards: SCORM, AICC,
+          MediaFile.
         type: string
       cmi5PublisherId:
-        description: The publisher ID for a cmi5 course.
+        description: >-
+          The publisher ID for a cmi5 course. This property is only applicable
+          with the following learning standards: cmi5, MediaFile.
         type: string
   ImportAdHocReferenceRequestSchema:
     description: >-
@@ -3990,6 +4817,30 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/CourseActivitySchema'
+  AssetFileSchema:
+    title: assetFileSchema
+    type: object
+    properties:
+      filename:
+        type: string
+      destination:
+        type: string
+  ImportAssetRequestSchema:
+    title: importAssetRequestSchema
+    description: Request schema to import a course asset file by fetching it from a url
+    type: object
+    properties:
+      fetchUrl:
+        description: URL path to the asset file to import.
+        type: string
+      destination:
+        description: >-
+          Path, relative to the course's Content Directory, that indicates where
+          to store the fetched asset file.
+        type: string
+    required:
+      - fetchUrl
+      - destination
   CreateDispatchListSchema:
     title: CreateDispatchListSchema
     type: object
@@ -4067,6 +4918,13 @@ definitions:
       - url
       - consumerKey
       - sharedSecret
+  DispatchLti13InfoSchema:
+    title: lti13InfoSchema
+    type: object
+    properties:
+      targetLinkUri:
+        description: Endpoint executed at the end of the OIDC authentication flow.
+        type: string
   CreateDispatchSchema:
     title: CreateDispatchSchema
     type: object
@@ -4220,8 +5078,61 @@ definitions:
     properties:
       name:
         type: string
+      lti13Data:
+        $ref: '#/definitions/Lti13PlatformConfigurationSchema'
     required:
       - name
+  Lti13PlatformConfigurationSchema:
+    title: lti13PlatformConfigurationSchema
+    type: object
+    properties:
+      clientId:
+        type: string
+        description: OAuth2 client Id for this tool
+      platformIssuerIdentifier:
+        type: string
+        description: Issuer identifier identifying the learning platform
+      deploymentId:
+        type: string
+        description: >-
+          An unchanging identifier (locally unique within the
+          platformIssuerIdentifier) for the platform-tool integration
+      oidcAuthorizationEndpoint:
+        type: string
+        description: Endpoint that will initiate the OIDC Authentication Request
+      jsonWebKeySetUrl:
+        type: string
+        description: Path to the platform's JSON Web Key Set
+      accessTokenUrl:
+        type: string
+        description: Endpoint that will return OAuth 2 access tokens for the platform
+    required:
+      - clientId
+      - platformIssuerIdentifier
+      - deploymentId
+      - jsonWebKeySetUrl
+      - oidcAuthorizationEndpoint
+  Lti13ToolConfigurationSchema:
+    title: lti13ToolConfigurationSchema
+    type: object
+    properties:
+      publicKey:
+        type: string
+        description: Public key for LTI 1.3 tool
+      oidcLoginInitiationsUrl:
+        type: string
+        description: Endpoint where the OIDC Authorization flow will be initiated
+      redirectUri:
+        type: string
+        description: Endpoint where the OIDC Authorization Response should be sent
+      jsonWebKeySetUrl:
+        type: string
+        description: Path to the tool's JSON Web Key Set
+    required:
+      - publicKey
+      - oidcLoginInitiationsUrl
+      - redirectUri
+      - jsonWebKeySetUrl
   RegistrationInstancingSchema:
     title: enableRegInstancing
     type: object
@@ -4281,6 +5192,36 @@ definitions:
         description: The ID of the LTI reporter that was just created.
     required:
       - ltiReporterId
+  RotateKeysSchema:
+    title: RotateKeys
+    type: object
+    properties:
+      expiry:
+        type: string
+        format: date-time
+    required:
+      - expiry
+  JsonWebKeySetSchema:
+    title: JsonWebKeySet
+    type: object
+    properties:
+      keys:
+        type: array
+        items:
+          type: object
+          properties:
+            kty:
+              type: string
+            e:
+              type: string
+            'n':
+              type: string
+            kid:
+              type: string
+            alg:
+              type: string
+            use:
+              type: string
   PingSchema:
     title: PingSchema
     type: object
@@ -4331,6 +5272,16 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ItemValuePairSchema'
+  CreateRegistrationWithLaunchLinkSchema:
+    title: createRegistrationWithLaunchLinkSchema
+    type: object
+    properties:
+      registration:
+        $ref: '#/definitions/CreateRegistrationSchema'
+        description: New registration for this launch link.
+      launchLink:
+        $ref: '#/definitions/LaunchLinkRequestSchema'
+        description: Launch link request.
   LaunchHistoryListSchema:
     title: launchHistoryListSchema
     type: object
@@ -5317,6 +6268,12 @@ definitions:
         description: >-
           configuration for this content connector, format is implementation
           specific
+      additionalInstanceInformation:
+        type: object
+        description: >-
+          additional information about this content connector, format is
+          implementation specific and will only be present if the connector is
+          enabled
       enabled:
         type: boolean
         description: is this connector enabled
@@ -5457,3 +6414,74 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/RefreshConnectorResultSchema'
+  PlayerConfigurationResultsSchema:
+    title: PlayerConfigurationResultsSchema
+    type: object
+    properties:
+      legacyData:
+        type: string
+  PlayerConfigurationSchema:
+    title: PlayerConfigurationSchema
+    type: object
+    properties:
+      registrationId:
+        type: string
+      instance:
+        type: integer
+        format: int32
+      courseId:
+        type: string
+      isTracking:
+        type: boolean
+      forceFrameset:
+        type: boolean
+      forceReview:
+        type: boolean
+      startSco:
+        type: string
+      webPath:
+        type: string
+      manifestDirPath:
+        type: string
+      redirectOnExitUrl:
+        type: string
+      width:
+        type: integer
+        format: int32
+      height:
+        type: integer
+        format: int32
+      left:
+        type: integer
+        format: int32
+      top:
+        type: integer
+        format: int32
+      player:
+        type: string
+        default: modern
+      forOffline:
+        type: boolean
+        default: 'false'
+      cultureCode:
+        type: string
+      includeRegistration:
+        type: boolean
+    required:
+      - registrationId
+  PlayerResultsSchema:
+    title: PlayerResultsSchema
+    type: object
+    properties:
+      isExitPlayer:
+        type: boolean
+      registrationId:
+        type: string
+      instance:
+        type: integer
+        format: int32
+      sequence:
+        type: integer
+        format: int32
+      legacyData:
+        type: string
