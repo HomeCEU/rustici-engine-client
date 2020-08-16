@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **outcome_url** | **string** | The URL to which LTI results will be posted. | 
 **credentials** | [**\Swagger\Client\Model\OAuthCredentialsSchema**](OAuthCredentialsSchema.md) |  | 
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

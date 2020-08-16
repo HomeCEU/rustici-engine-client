@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 **authority** | [**\Swagger\Client\Model\XapiAgentGroup**](XapiAgentGroup.md) |  | [optional] 
 **attachments** | [**\Swagger\Client\Model\XapiAttachment[]**](XapiAttachment.md) |  | [optional] 
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

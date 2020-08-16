@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **context** | [**\Swagger\Client\Model\ConnectorContentSearchContextSchema**](ConnectorContentSearchContextSchema.md) |  | [optional] 
 **more** | **string** | Token for getting the next set of results, from the prior set of results. | [optional] 
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

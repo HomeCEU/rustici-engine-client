@@ -1,11 +1,12 @@
 # Swagger\Client\AboutApi
 
-All URIs are relative to */api/v2/*
+All URIs are relative to *http://localhost/api/v2/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAbout**](AboutApi.md#getabout) | **GET** /about | Get back the version and platform of the running instance of Engine
-[**getUserCount**](AboutApi.md#getusercount) | **GET** /about/userCount | Gets the number of users for the specified tenant or across all tenants when none is specified
+[**getAbout**](AboutApi.md#getAbout) | **GET** /about | Get back the version and platform of the running instance of Engine
+[**getUserCount**](AboutApi.md#getUserCount) | **GET** /about/userCount | Gets the number of users for the specified tenant or across all tenants when none is specified
+
 
 # **getAbout**
 > \Swagger\Client\Model\AboutSchema getAbout($engine_tenant_name)
@@ -16,6 +17,7 @@ Get back the version and platform of the running instance of Engine
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -57,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -71,6 +73,7 @@ Gets the number of users for the specified tenant or across all tenants when non
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -116,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

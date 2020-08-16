@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **initial_registration_state** | [**\Swagger\Client\Model\RegistrationSchema**](RegistrationSchema.md) |  | [optional] 
 **initial_settings** | [**\Swagger\Client\Model\SettingsPostSchema**](SettingsPostSchema.md) |  | [optional] 
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

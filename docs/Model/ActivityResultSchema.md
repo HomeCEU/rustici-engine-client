@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 **static_properties** | [**\Swagger\Client\Model\StaticPropertiesSchema**](StaticPropertiesSchema.md) |  | [optional] 
 **runtime** | [**\Swagger\Client\Model\RuntimeSchema**](RuntimeSchema.md) |  | [optional] 
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

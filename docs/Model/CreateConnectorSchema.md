@@ -7,5 +7,6 @@ Name | Type | Description | Notes
 **configuration** | **object** | configuration for this content connector, format is implementation specific | 
 **enabled** | **bool** | is this connector enabled | [optional] [default to true]
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

@@ -1,34 +1,43 @@
 # Swagger\Client\CourseApi
 
-All URIs are relative to */api/v2/*
+All URIs are relative to *http://localhost/api/v2/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**buildCoursePreviewLaunchLink**](CourseApi.md#buildcoursepreviewlaunchlink) | **POST** /courses/{courseId}/preview | Returns the link to use to preview this course
-[**buildCoursePreviewLaunchLinkWithVersion**](CourseApi.md#buildcoursepreviewlaunchlinkwithversion) | **POST** /courses/{courseId}/versions/{versionId}/preview | Returns the link to use to preview this course
-[**createFetchAndImportCourseJob**](CourseApi.md#createfetchandimportcoursejob) | **POST** /courses/importJobs | Start a job to fetch and import a course.
-[**createUploadAndImportCourseJob**](CourseApi.md#createuploadandimportcoursejob) | **POST** /courses/importJobs/upload | Upload a course and start an import job for it.
-[**deleteCourse**](CourseApi.md#deletecourse) | **DELETE** /courses/{courseId} | Delete &#x60;courseId&#x60;
-[**deleteCourseConfigurationSetting**](CourseApi.md#deletecourseconfigurationsetting) | **DELETE** /courses/{courseId}/configuration/{settingId} | Clears the &#x60;settingId&#x60; value for this course
-[**deleteCourseVersion**](CourseApi.md#deletecourseversion) | **DELETE** /courses/{courseId}/versions/{versionId} | Delete version &#x60;versionId&#x60; of &#x60;courseId&#x60;
-[**deleteCourseVersionConfigurationSetting**](CourseApi.md#deletecourseversionconfigurationsetting) | **DELETE** /courses/{courseId}/versions/{versionId}/configuration/{settingId} | Clears the &#x60;settingId&#x60; value for this course and version.
-[**getCourse**](CourseApi.md#getcourse) | **GET** /courses/{courseId} | Get information about &#x60;courseId&#x60;
-[**getCourseConfiguration**](CourseApi.md#getcourseconfiguration) | **GET** /courses/{courseId}/configuration | Returns all configuration settings for this course
-[**getCourseStatements**](CourseApi.md#getcoursestatements) | **GET** /courses/{courseId}/xAPIStatements | Get xAPI statements for &#x60;courseId&#x60;
-[**getCourseVersionConfiguration**](CourseApi.md#getcourseversionconfiguration) | **GET** /courses/{courseId}/versions/{versionId}/configuration | Returns all configuration settings for this course and version.
-[**getCourseVersionInfo**](CourseApi.md#getcourseversioninfo) | **GET** /courses/{courseId}/versions/{versionId} | Get version &#x60;versionId&#x60; of &#x60;courseId&#x60;
-[**getCourseVersionStatements**](CourseApi.md#getcourseversionstatements) | **GET** /courses/{courseId}/versions/{versionId}/xAPIStatements | Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60;
-[**getCourseVersions**](CourseApi.md#getcourseversions) | **GET** /courses/{courseId}/versions | Get all versions of &#x60;courseId&#x60;
-[**getCourses**](CourseApi.md#getcourses) | **GET** /courses | Get a list of all courses for the specified tenant
-[**getImportJobStatus**](CourseApi.md#getimportjobstatus) | **GET** /courses/importJobs/{importJobId} | Check the status of an import job.
-[**importCourseWithoutUpload**](CourseApi.md#importcoursewithoutupload) | **POST** /courses | Create a course
-[**setCourseConfiguration**](CourseApi.md#setcourseconfiguration) | **POST** /courses/{courseId}/configuration | Set configuration settings for this course.
-[**setCourseTitle**](CourseApi.md#setcoursetitle) | **PUT** /courses/{courseId}/title | Sets the course title for &#x60;courseId&#x60;
-[**setCourseVersionConfiguration**](CourseApi.md#setcourseversionconfiguration) | **POST** /courses/{courseId}/versions/{versionId}/configuration | Set configuration settings for this course and version.
-[**uploadAndImportCourse**](CourseApi.md#uploadandimportcourse) | **POST** /courses/upload | Upload a course to import
+[**buildCoursePreviewLaunchLink**](CourseApi.md#buildCoursePreviewLaunchLink) | **POST** /courses/{courseId}/preview | Returns the link to use to preview this course
+[**buildCoursePreviewLaunchLinkWithVersion**](CourseApi.md#buildCoursePreviewLaunchLinkWithVersion) | **POST** /courses/{courseId}/versions/{versionId}/preview | Returns the link to use to preview this course
+[**createFetchAndImportCourseJob**](CourseApi.md#createFetchAndImportCourseJob) | **POST** /courses/importJobs | Start a job to fetch and import a course.
+[**createUploadAndImportCourseJob**](CourseApi.md#createUploadAndImportCourseJob) | **POST** /courses/importJobs/upload | Upload a course and start an import job for it.
+[**deleteCourse**](CourseApi.md#deleteCourse) | **DELETE** /courses/{courseId} | Delete &#x60;courseId&#x60;
+[**deleteCourseConfigurationSetting**](CourseApi.md#deleteCourseConfigurationSetting) | **DELETE** /courses/{courseId}/configuration/{settingId} | Clears the &#x60;settingId&#x60; value for this course
+[**deleteCourseVersion**](CourseApi.md#deleteCourseVersion) | **DELETE** /courses/{courseId}/versions/{versionId} | Delete version &#x60;versionId&#x60; of &#x60;courseId&#x60;
+[**deleteCourseVersionConfigurationSetting**](CourseApi.md#deleteCourseVersionConfigurationSetting) | **DELETE** /courses/{courseId}/versions/{versionId}/configuration/{settingId} | Clears the &#x60;settingId&#x60; value for this course and version.
+[**deleteCourseZip**](CourseApi.md#deleteCourseZip) | **DELETE** /courses/{courseId}/zip | Deletes the exported zip for the latest version of the specified course
+[**deleteVersionedCourseZip**](CourseApi.md#deleteVersionedCourseZip) | **DELETE** /courses/{courseId}/versions/{versionId}/zip | Deletes the exported zip for the specified course version
+[**getCourse**](CourseApi.md#getCourse) | **GET** /courses/{courseId} | Get information about &#x60;courseId&#x60;
+[**getCourseConfiguration**](CourseApi.md#getCourseConfiguration) | **GET** /courses/{courseId}/configuration | Returns all configuration settings for this course
+[**getCourseStatements**](CourseApi.md#getCourseStatements) | **GET** /courses/{courseId}/xAPIStatements | Get xAPI statements for &#x60;courseId&#x60;
+[**getCourseVersionConfiguration**](CourseApi.md#getCourseVersionConfiguration) | **GET** /courses/{courseId}/versions/{versionId}/configuration | Returns all configuration settings for this course and version.
+[**getCourseVersionInfo**](CourseApi.md#getCourseVersionInfo) | **GET** /courses/{courseId}/versions/{versionId} | Get version &#x60;versionId&#x60; of &#x60;courseId&#x60;
+[**getCourseVersionStatements**](CourseApi.md#getCourseVersionStatements) | **GET** /courses/{courseId}/versions/{versionId}/xAPIStatements | Get xAPI statements for version &#x60;versionId&#x60; of &#x60;courseId&#x60;
+[**getCourseVersions**](CourseApi.md#getCourseVersions) | **GET** /courses/{courseId}/versions | Get all versions of &#x60;courseId&#x60;
+[**getCourseZip**](CourseApi.md#getCourseZip) | **GET** /courses/{courseId}/zip | Get the zip package for the latest course version
+[**getCourses**](CourseApi.md#getCourses) | **GET** /courses | Get a list of all courses for the specified tenant
+[**getImportJobStatus**](CourseApi.md#getImportJobStatus) | **GET** /courses/importJobs/{importJobId} | Check the status of an import job.
+[**getVersionedCourseZip**](CourseApi.md#getVersionedCourseZip) | **GET** /courses/{courseId}/versions/{versionId}/zip | Get the zip package for the specified course version
+[**importCourseAssetFile**](CourseApi.md#importCourseAssetFile) | **POST** /courses/{courseId}/asset | Import an asset file for this course.
+[**importCourseVersionAssetFile**](CourseApi.md#importCourseVersionAssetFile) | **POST** /courses/{courseId}/versions/{versionId}/asset | Import an asset file for this course version.
+[**importCourseWithoutUpload**](CourseApi.md#importCourseWithoutUpload) | **POST** /courses | Create a course
+[**setCourseConfiguration**](CourseApi.md#setCourseConfiguration) | **POST** /courses/{courseId}/configuration | Set configuration settings for this course.
+[**setCourseTitle**](CourseApi.md#setCourseTitle) | **PUT** /courses/{courseId}/title | Sets the course title for &#x60;courseId&#x60;
+[**setCourseVersionConfiguration**](CourseApi.md#setCourseVersionConfiguration) | **POST** /courses/{courseId}/versions/{versionId}/configuration | Set configuration settings for this course and version.
+[**uploadAndImportCourse**](CourseApi.md#uploadAndImportCourse) | **POST** /courses/upload | Upload a course to import
+[**uploadCourseAssetFile**](CourseApi.md#uploadCourseAssetFile) | **POST** /courses/{courseId}/asset/upload | Upload an asset file for this course.
+[**uploadCourseVersionAssetFile**](CourseApi.md#uploadCourseVersionAssetFile) | **POST** /courses/{courseId}/versions/{versionId}/asset/upload | Upload an asset file for this course version.
+
 
 # **buildCoursePreviewLaunchLink**
-> \Swagger\Client\Model\LaunchLinkSchema buildCoursePreviewLaunchLink($body, $engine_tenant_name, $course_id)
+> \Swagger\Client\Model\LaunchLinkSchema buildCoursePreviewLaunchLink($engine_tenant_name, $course_id, $launch_link_request)
 
 Returns the link to use to preview this course
 
@@ -36,6 +45,7 @@ Returns the link to use to preview this course
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -50,12 +60,12 @@ $apiInstance = new Swagger\Client\Api\CourseApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\LaunchLinkRequestSchema(); // \Swagger\Client\Model\LaunchLinkRequestSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $course_id = "course_id_example"; // string | 
+$launch_link_request = new \Swagger\Client\Model\LaunchLinkRequestSchema(); // \Swagger\Client\Model\LaunchLinkRequestSchema | 
 
 try {
-    $result = $apiInstance->buildCoursePreviewLaunchLink($body, $engine_tenant_name, $course_id);
+    $result = $apiInstance->buildCoursePreviewLaunchLink($engine_tenant_name, $course_id, $launch_link_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseApi->buildCoursePreviewLaunchLink: ', $e->getMessage(), PHP_EOL;
@@ -67,9 +77,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\LaunchLinkRequestSchema**](../Model/LaunchLinkRequestSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
  **course_id** | **string**|  |
+ **launch_link_request** | [**\Swagger\Client\Model\LaunchLinkRequestSchema**](../Model/LaunchLinkRequestSchema.md)|  |
 
 ### Return type
 
@@ -87,7 +97,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **buildCoursePreviewLaunchLinkWithVersion**
-> \Swagger\Client\Model\LaunchLinkSchema buildCoursePreviewLaunchLinkWithVersion($body, $engine_tenant_name, $course_id, $version_id)
+> \Swagger\Client\Model\LaunchLinkSchema buildCoursePreviewLaunchLinkWithVersion($engine_tenant_name, $course_id, $version_id, $launch_link_request)
 
 Returns the link to use to preview this course
 
@@ -95,6 +105,7 @@ Returns the link to use to preview this course
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -109,13 +120,13 @@ $apiInstance = new Swagger\Client\Api\CourseApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\LaunchLinkRequestSchema(); // \Swagger\Client\Model\LaunchLinkRequestSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $course_id = "course_id_example"; // string | 
 $version_id = 56; // int | the course version
+$launch_link_request = new \Swagger\Client\Model\LaunchLinkRequestSchema(); // \Swagger\Client\Model\LaunchLinkRequestSchema | 
 
 try {
-    $result = $apiInstance->buildCoursePreviewLaunchLinkWithVersion($body, $engine_tenant_name, $course_id, $version_id);
+    $result = $apiInstance->buildCoursePreviewLaunchLinkWithVersion($engine_tenant_name, $course_id, $version_id, $launch_link_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseApi->buildCoursePreviewLaunchLinkWithVersion: ', $e->getMessage(), PHP_EOL;
@@ -127,10 +138,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\LaunchLinkRequestSchema**](../Model/LaunchLinkRequestSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
  **course_id** | **string**|  |
  **version_id** | **int**| the course version |
+ **launch_link_request** | [**\Swagger\Client\Model\LaunchLinkRequestSchema**](../Model/LaunchLinkRequestSchema.md)|  |
 
 ### Return type
 
@@ -148,7 +159,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createFetchAndImportCourseJob**
-> \Swagger\Client\Model\StringResultSchema createFetchAndImportCourseJob($body, $engine_tenant_name, $course_id, $may_create_new_version)
+> \Swagger\Client\Model\StringResultSchema createFetchAndImportCourseJob($engine_tenant_name, $course_id, $import_request, $may_create_new_version)
 
 Start a job to fetch and import a course.
 
@@ -158,6 +169,7 @@ An import job will be started to fetch and import the referenced file, and the i
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -172,13 +184,13 @@ $apiInstance = new Swagger\Client\Api\CourseApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\ImportFetchRequestSchema(); // \Swagger\Client\Model\ImportFetchRequestSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $course_id = "course_id_example"; // string | A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.
-$may_create_new_version = true; // bool | Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn't already exist.
+$import_request = new \Swagger\Client\Model\ImportFetchRequestSchema(); // \Swagger\Client\Model\ImportFetchRequestSchema | 
+$may_create_new_version = false; // bool | Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn't already exist.
 
 try {
-    $result = $apiInstance->createFetchAndImportCourseJob($body, $engine_tenant_name, $course_id, $may_create_new_version);
+    $result = $apiInstance->createFetchAndImportCourseJob($engine_tenant_name, $course_id, $import_request, $may_create_new_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseApi->createFetchAndImportCourseJob: ', $e->getMessage(), PHP_EOL;
@@ -190,10 +202,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\ImportFetchRequestSchema**](../Model/ImportFetchRequestSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
  **course_id** | **string**| A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use. |
- **may_create_new_version** | **bool**| Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#x27;t already exist. | [optional]
+ **import_request** | [**\Swagger\Client\Model\ImportFetchRequestSchema**](../Model/ImportFetchRequestSchema.md)|  |
+ **may_create_new_version** | **bool**| Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. | [optional] [default to false]
 
 ### Return type
 
@@ -211,7 +223,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createUploadAndImportCourseJob**
-> \Swagger\Client\Model\StringResultSchema createUploadAndImportCourseJob($engine_tenant_name, $course_id, $file, $uploaded_content_type, $may_create_new_version)
+> \Swagger\Client\Model\StringResultSchema createUploadAndImportCourseJob($engine_tenant_name, $course_id, $may_create_new_version, $file, $content_metadata, $uploaded_content_type)
 
 Upload a course and start an import job for it.
 
@@ -221,6 +233,7 @@ An import job will be started to import the posted file, and the import job ID w
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -237,12 +250,13 @@ $apiInstance = new Swagger\Client\Api\CourseApi(
 );
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $course_id = "course_id_example"; // string | A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.
-$file = "file_example"; // string | 
-$uploaded_content_type = "uploaded_content_type_example"; // string | The MIME type identifier for the content to be uploaded
-$may_create_new_version = true; // bool | Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn't already exist.
+$may_create_new_version = false; // bool | Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn't already exist.
+$file = "/path/to/file.txt"; // \SplFileObject | The course content file to import.
+$content_metadata = "content_metadata_example"; // string | Serialized 'mediaFileMetadata' schema.
+$uploaded_content_type = "application/zip"; // string | The MIME type identifier for the content to be uploaded
 
 try {
-    $result = $apiInstance->createUploadAndImportCourseJob($engine_tenant_name, $course_id, $file, $uploaded_content_type, $may_create_new_version);
+    $result = $apiInstance->createUploadAndImportCourseJob($engine_tenant_name, $course_id, $may_create_new_version, $file, $content_metadata, $uploaded_content_type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseApi->createUploadAndImportCourseJob: ', $e->getMessage(), PHP_EOL;
@@ -256,9 +270,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **engine_tenant_name** | **string**| tenant for this request |
  **course_id** | **string**| A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use. |
- **file** | **string****string**|  | [optional]
- **uploaded_content_type** | **string**| The MIME type identifier for the content to be uploaded | [optional]
- **may_create_new_version** | **bool**| Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#x27;t already exist. | [optional]
+ **may_create_new_version** | **bool**| Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. | [optional] [default to false]
+ **file** | **\SplFileObject**| The course content file to import. | [optional]
+ **content_metadata** | **string**| Serialized &#39;mediaFileMetadata&#39; schema. | [optional]
+ **uploaded_content_type** | **string**| The MIME type identifier for the content to be uploaded | [optional] [default to application/zip]
 
 ### Return type
 
@@ -284,6 +299,7 @@ Delete `courseId`
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -326,7 +342,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -340,6 +356,7 @@ Clears the `settingId` value for this course
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -384,7 +401,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -398,6 +415,7 @@ Delete version `versionId` of `courseId`
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -442,7 +460,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -456,6 +474,7 @@ Clears the `settingId` value for this course and version.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -502,20 +521,21 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getCourse**
-> \Swagger\Client\Model\CourseSchema getCourse($engine_tenant_name, $course_id, $include_registration_count, $include_course_metadata)
+# **deleteCourseZip**
+> deleteCourseZip($engine_tenant_name, $course_id, $export_type)
 
-Get information about `courseId`
+Deletes the exported zip for the latest version of the specified course
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -532,8 +552,128 @@ $apiInstance = new Swagger\Client\Api\CourseApi(
 );
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $course_id = "course_id_example"; // string | 
-$include_registration_count = true; // bool | Include the registration count in the results
-$include_course_metadata = true; // bool | Include course metadata in the results
+$export_type = "export_type_example"; // string | 
+
+try {
+    $apiInstance->deleteCourseZip($engine_tenant_name, $course_id, $export_type);
+} catch (Exception $e) {
+    echo 'Exception when calling CourseApi->deleteCourseZip: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **engine_tenant_name** | **string**| tenant for this request |
+ **course_id** | **string**|  |
+ **export_type** | **string**|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **deleteVersionedCourseZip**
+> deleteVersionedCourseZip($engine_tenant_name, $course_id, $version_id, $export_type)
+
+Deletes the exported zip for the specified course version
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Swagger\Client\Api\CourseApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
+$course_id = "course_id_example"; // string | 
+$version_id = 56; // int | the course version
+$export_type = "export_type_example"; // string | 
+
+try {
+    $apiInstance->deleteVersionedCourseZip($engine_tenant_name, $course_id, $version_id, $export_type);
+} catch (Exception $e) {
+    echo 'Exception when calling CourseApi->deleteVersionedCourseZip: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **engine_tenant_name** | **string**| tenant for this request |
+ **course_id** | **string**|  |
+ **version_id** | **int**| the course version |
+ **export_type** | **string**|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getCourse**
+> \Swagger\Client\Model\CourseSchema getCourse($engine_tenant_name, $course_id, $include_registration_count, $include_course_metadata)
+
+Get information about `courseId`
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Swagger\Client\Api\CourseApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
+$course_id = "course_id_example"; // string | 
+$include_registration_count = false; // bool | Include the registration count in the results
+$include_course_metadata = false; // bool | Include course metadata in the results
 
 try {
     $result = $apiInstance->getCourse($engine_tenant_name, $course_id, $include_registration_count, $include_course_metadata);
@@ -550,8 +690,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **engine_tenant_name** | **string**| tenant for this request |
  **course_id** | **string**|  |
- **include_registration_count** | **bool**| Include the registration count in the results | [optional]
- **include_course_metadata** | **bool**| Include course metadata in the results | [optional]
+ **include_registration_count** | **bool**| Include the registration count in the results | [optional] [default to false]
+ **include_course_metadata** | **bool**| Include course metadata in the results | [optional] [default to false]
 
 ### Return type
 
@@ -563,7 +703,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -577,6 +717,7 @@ Returns all configuration settings for this course
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -593,9 +734,9 @@ $apiInstance = new Swagger\Client\Api\CourseApi(
 );
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $course_id = "course_id_example"; // string | 
-$include_metadata = true; // bool | 
-$include_hidden_settings = true; // bool | Should settings that are declared to be hidden be included. Note: such settings generally do not need to be modified, and may be confusing.
-$include_secret_settings = true; // bool | Should settings that are stored encrypted (type 'secretString') be included. Note: if included, the decrypted value will be returned.
+$include_metadata = false; // bool | 
+$include_hidden_settings = false; // bool | Should settings that are declared to be hidden be included. Note: such settings generally do not need to be modified, and may be confusing.
+$include_secret_settings = false; // bool | Should settings that are stored encrypted (type 'secretString') be included. Note: if included, the decrypted value will be returned.
 $process_replacement_tokens = true; // bool | Whether to process replacement tokens (false returns the raw value of each setting, without tokens or environment variable replacements)
 
 try {
@@ -613,10 +754,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **engine_tenant_name** | **string**| tenant for this request |
  **course_id** | **string**|  |
- **include_metadata** | **bool**|  | [optional]
- **include_hidden_settings** | **bool**| Should settings that are declared to be hidden be included. Note: such settings generally do not need to be modified, and may be confusing. | [optional]
- **include_secret_settings** | **bool**| Should settings that are stored encrypted (type &#x27;secretString&#x27;) be included. Note: if included, the decrypted value will be returned. | [optional]
- **process_replacement_tokens** | **bool**| Whether to process replacement tokens (false returns the raw value of each setting, without tokens or environment variable replacements) | [optional]
+ **include_metadata** | **bool**|  | [optional] [default to false]
+ **include_hidden_settings** | **bool**| Should settings that are declared to be hidden be included. Note: such settings generally do not need to be modified, and may be confusing. | [optional] [default to false]
+ **include_secret_settings** | **bool**| Should settings that are stored encrypted (type &#39;secretString&#39;) be included. Note: if included, the decrypted value will be returned. | [optional] [default to false]
+ **process_replacement_tokens** | **bool**| Whether to process replacement tokens (false returns the raw value of each setting, without tokens or environment variable replacements) | [optional] [default to true]
 
 ### Return type
 
@@ -628,7 +769,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -642,6 +783,7 @@ Get xAPI statements for `courseId`
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -681,7 +823,7 @@ Name | Type | Description  | Notes
  **learner_id** | **string**| Only entries for the specified learner id will be included. | [optional]
  **since** | **\DateTime**| Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. | [optional]
  **until** | **\DateTime**| Only items updated up until the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. | [optional]
- **more** | **string**| Value for this parameter will be provided in the &#x27;more&#x27; property of lists, where needed. An opaque value, construction and parsing may change without notice. | [optional]
+ **more** | **string**| Value for this parameter will be provided in the &#39;more&#39; property of lists, where needed. An opaque value, construction and parsing may change without notice. | [optional]
 
 ### Return type
 
@@ -693,7 +835,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -707,6 +849,7 @@ Returns all configuration settings for this course and version.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -724,9 +867,9 @@ $apiInstance = new Swagger\Client\Api\CourseApi(
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $course_id = "course_id_example"; // string | 
 $version_id = 56; // int | the course version
-$include_metadata = true; // bool | 
-$include_hidden_settings = true; // bool | Should settings that are declared to be hidden be included. Note: such settings generally do not need to be modified, and may be confusing.
-$include_secret_settings = true; // bool | Should settings that are stored encrypted (type 'secretString') be included. Note: if included, the decrypted value will be returned.
+$include_metadata = false; // bool | 
+$include_hidden_settings = false; // bool | Should settings that are declared to be hidden be included. Note: such settings generally do not need to be modified, and may be confusing.
+$include_secret_settings = false; // bool | Should settings that are stored encrypted (type 'secretString') be included. Note: if included, the decrypted value will be returned.
 $process_replacement_tokens = true; // bool | Whether to process replacement tokens (false returns the raw value of each setting, without tokens or environment variable replacements)
 
 try {
@@ -745,10 +888,10 @@ Name | Type | Description  | Notes
  **engine_tenant_name** | **string**| tenant for this request |
  **course_id** | **string**|  |
  **version_id** | **int**| the course version |
- **include_metadata** | **bool**|  | [optional]
- **include_hidden_settings** | **bool**| Should settings that are declared to be hidden be included. Note: such settings generally do not need to be modified, and may be confusing. | [optional]
- **include_secret_settings** | **bool**| Should settings that are stored encrypted (type &#x27;secretString&#x27;) be included. Note: if included, the decrypted value will be returned. | [optional]
- **process_replacement_tokens** | **bool**| Whether to process replacement tokens (false returns the raw value of each setting, without tokens or environment variable replacements) | [optional]
+ **include_metadata** | **bool**|  | [optional] [default to false]
+ **include_hidden_settings** | **bool**| Should settings that are declared to be hidden be included. Note: such settings generally do not need to be modified, and may be confusing. | [optional] [default to false]
+ **include_secret_settings** | **bool**| Should settings that are stored encrypted (type &#39;secretString&#39;) be included. Note: if included, the decrypted value will be returned. | [optional] [default to false]
+ **process_replacement_tokens** | **bool**| Whether to process replacement tokens (false returns the raw value of each setting, without tokens or environment variable replacements) | [optional] [default to true]
 
 ### Return type
 
@@ -760,7 +903,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -774,6 +917,7 @@ Get version `versionId` of `courseId`
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -791,8 +935,8 @@ $apiInstance = new Swagger\Client\Api\CourseApi(
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $course_id = "course_id_example"; // string | 
 $version_id = 56; // int | the course version
-$include_registration_count = true; // bool | Include the registration count in the results
-$include_course_metadata = true; // bool | Include course metadata in the results
+$include_registration_count = false; // bool | Include the registration count in the results
+$include_course_metadata = false; // bool | Include course metadata in the results
 
 try {
     $result = $apiInstance->getCourseVersionInfo($engine_tenant_name, $course_id, $version_id, $include_registration_count, $include_course_metadata);
@@ -810,8 +954,8 @@ Name | Type | Description  | Notes
  **engine_tenant_name** | **string**| tenant for this request |
  **course_id** | **string**|  |
  **version_id** | **int**| the course version |
- **include_registration_count** | **bool**| Include the registration count in the results | [optional]
- **include_course_metadata** | **bool**| Include course metadata in the results | [optional]
+ **include_registration_count** | **bool**| Include the registration count in the results | [optional] [default to false]
+ **include_course_metadata** | **bool**| Include course metadata in the results | [optional] [default to false]
 
 ### Return type
 
@@ -823,7 +967,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -837,6 +981,7 @@ Get xAPI statements for version `versionId` of `courseId`
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -878,7 +1023,7 @@ Name | Type | Description  | Notes
  **learner_id** | **string**| Only entries for the specified learner id will be included. | [optional]
  **since** | **\DateTime**| Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. | [optional]
  **until** | **\DateTime**| Only items updated up until the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. | [optional]
- **more** | **string**| Value for this parameter will be provided in the &#x27;more&#x27; property of lists, where needed. An opaque value, construction and parsing may change without notice. | [optional]
+ **more** | **string**| Value for this parameter will be provided in the &#39;more&#39; property of lists, where needed. An opaque value, construction and parsing may change without notice. | [optional]
 
 ### Return type
 
@@ -890,7 +1035,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -904,6 +1049,7 @@ Get all versions of `courseId`
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -922,8 +1068,8 @@ $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this 
 $course_id = "course_id_example"; // string | 
 $since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
 $until = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only items updated up until the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
-$include_registration_count = true; // bool | Include the registration count in the results
-$include_course_metadata = true; // bool | Include course metadata in the results
+$include_registration_count = false; // bool | Include the registration count in the results
+$include_course_metadata = false; // bool | Include course metadata in the results
 
 try {
     $result = $apiInstance->getCourseVersions($engine_tenant_name, $course_id, $since, $until, $include_registration_count, $include_course_metadata);
@@ -942,8 +1088,8 @@ Name | Type | Description  | Notes
  **course_id** | **string**|  |
  **since** | **\DateTime**| Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. | [optional]
  **until** | **\DateTime**| Only items updated up until the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. | [optional]
- **include_registration_count** | **bool**| Include the registration count in the results | [optional]
- **include_course_metadata** | **bool**| Include course metadata in the results | [optional]
+ **include_registration_count** | **bool**| Include the registration count in the results | [optional] [default to false]
+ **include_course_metadata** | **bool**| Include course metadata in the results | [optional] [default to false]
 
 ### Return type
 
@@ -955,8 +1101,68 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getCourseZip**
+> \SplFileObject getCourseZip($engine_tenant_name, $course_id, $export_type)
+
+Get the zip package for the latest course version
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Swagger\Client\Api\CourseApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
+$course_id = "course_id_example"; // string | 
+$export_type = "export_type_example"; // string | 
+
+try {
+    $result = $apiInstance->getCourseZip($engine_tenant_name, $course_id, $export_type);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CourseApi->getCourseZip: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **engine_tenant_name** | **string**| tenant for this request |
+ **course_id** | **string**|  |
+ **export_type** | **string**|  |
+
+### Return type
+
+[**\SplFileObject**](../Model/\SplFileObject.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/zip
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -969,6 +1175,7 @@ Get a list of all courses for the specified tenant
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -987,8 +1194,8 @@ $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this 
 $more = "more_example"; // string | Value for this parameter will be provided in the 'more' property of lists, where needed. An opaque value, construction and parsing may change without notice.
 $since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
 $until = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only items updated up until the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
-$include_registration_count = true; // bool | Include the registration count in the results
-$include_course_metadata = true; // bool | Include course metadata in the results
+$include_registration_count = false; // bool | Include the registration count in the results
+$include_course_metadata = false; // bool | Include course metadata in the results
 
 try {
     $result = $apiInstance->getCourses($engine_tenant_name, $more, $since, $until, $include_registration_count, $include_course_metadata);
@@ -1004,11 +1211,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **engine_tenant_name** | **string**| tenant for this request |
- **more** | **string**| Value for this parameter will be provided in the &#x27;more&#x27; property of lists, where needed. An opaque value, construction and parsing may change without notice. | [optional]
+ **more** | **string**| Value for this parameter will be provided in the &#39;more&#39; property of lists, where needed. An opaque value, construction and parsing may change without notice. | [optional]
  **since** | **\DateTime**| Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. | [optional]
  **until** | **\DateTime**| Only items updated up until the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. | [optional]
- **include_registration_count** | **bool**| Include the registration count in the results | [optional]
- **include_course_metadata** | **bool**| Include course metadata in the results | [optional]
+ **include_registration_count** | **bool**| Include the registration count in the results | [optional] [default to false]
+ **include_course_metadata** | **bool**| Include course metadata in the results | [optional] [default to false]
 
 ### Return type
 
@@ -1020,7 +1227,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -1034,6 +1241,7 @@ Check the status of an import job.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -1077,22 +1285,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **importCourseWithoutUpload**
-> \Swagger\Client\Model\ImportResultSchema importCourseWithoutUpload($body, $engine_tenant_name, $course_id, $may_create_new_version, $dry_run)
+# **getVersionedCourseZip**
+> \SplFileObject getVersionedCourseZip($engine_tenant_name, $course_id, $version_id, $export_type)
 
-Create a course
-
-Import the specified course and return the results of the import. For large imports, it may be necessary to use importJobs instead to avoid timeouts.
+Get the zip package for the specified course version
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -1107,14 +1314,204 @@ $apiInstance = new Swagger\Client\Api\CourseApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\ImportRequestSchema(); // \Swagger\Client\Model\ImportRequestSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
-$course_id = "course_id_example"; // string | A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.
-$may_create_new_version = true; // bool | Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn't already exist.
-$dry_run = true; // bool | Validate the course can be imported (mainly by validating the manifest), but don't actually import it.
+$course_id = "course_id_example"; // string | 
+$version_id = 56; // int | the course version
+$export_type = "export_type_example"; // string | 
 
 try {
-    $result = $apiInstance->importCourseWithoutUpload($body, $engine_tenant_name, $course_id, $may_create_new_version, $dry_run);
+    $result = $apiInstance->getVersionedCourseZip($engine_tenant_name, $course_id, $version_id, $export_type);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CourseApi->getVersionedCourseZip: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **engine_tenant_name** | **string**| tenant for this request |
+ **course_id** | **string**|  |
+ **version_id** | **int**| the course version |
+ **export_type** | **string**|  |
+
+### Return type
+
+[**\SplFileObject**](../Model/\SplFileObject.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/zip
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **importCourseAssetFile**
+> \Swagger\Client\Model\AssetFileSchema importCourseAssetFile($engine_tenant_name, $course_id, $asset_schema, $update_asset_policy)
+
+Import an asset file for this course.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Swagger\Client\Api\CourseApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
+$course_id = "course_id_example"; // string | 
+$asset_schema = new \Swagger\Client\Model\ImportAssetRequestSchema(); // \Swagger\Client\Model\ImportAssetRequestSchema | 
+$update_asset_policy = "lax"; // string | Describes how Engine should handle importing asset files with respect to overwriting files. Valid values are 'reject', 'strict', and 'lax'. A 'reject' policy request will fail if the asset file already exists on the system ('overwriting' not allowed). A 'strict' policy request will fail if the asset file does not already exist ('overwriting' is required). A 'lax' policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).
+
+try {
+    $result = $apiInstance->importCourseAssetFile($engine_tenant_name, $course_id, $asset_schema, $update_asset_policy);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CourseApi->importCourseAssetFile: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **engine_tenant_name** | **string**| tenant for this request |
+ **course_id** | **string**|  |
+ **asset_schema** | [**\Swagger\Client\Model\ImportAssetRequestSchema**](../Model/ImportAssetRequestSchema.md)|  |
+ **update_asset_policy** | **string**| Describes how Engine should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases). | [optional] [default to lax]
+
+### Return type
+
+[**\Swagger\Client\Model\AssetFileSchema**](../Model/AssetFileSchema.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **importCourseVersionAssetFile**
+> \Swagger\Client\Model\AssetFileSchema importCourseVersionAssetFile($engine_tenant_name, $course_id, $version_id, $asset_schema, $update_asset_policy)
+
+Import an asset file for this course version.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Swagger\Client\Api\CourseApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
+$course_id = "course_id_example"; // string | 
+$version_id = 56; // int | the course version
+$asset_schema = new \Swagger\Client\Model\ImportAssetRequestSchema(); // \Swagger\Client\Model\ImportAssetRequestSchema | 
+$update_asset_policy = "lax"; // string | Describes how Engine should handle importing asset files with respect to overwriting files. Valid values are 'reject', 'strict', and 'lax'. A 'reject' policy request will fail if the asset file already exists on the system ('overwriting' not allowed). A 'strict' policy request will fail if the asset file does not already exist ('overwriting' is required). A 'lax' policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).
+
+try {
+    $result = $apiInstance->importCourseVersionAssetFile($engine_tenant_name, $course_id, $version_id, $asset_schema, $update_asset_policy);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CourseApi->importCourseVersionAssetFile: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **engine_tenant_name** | **string**| tenant for this request |
+ **course_id** | **string**|  |
+ **version_id** | **int**| the course version |
+ **asset_schema** | [**\Swagger\Client\Model\ImportAssetRequestSchema**](../Model/ImportAssetRequestSchema.md)|  |
+ **update_asset_policy** | **string**| Describes how Engine should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases). | [optional] [default to lax]
+
+### Return type
+
+[**\Swagger\Client\Model\AssetFileSchema**](../Model/AssetFileSchema.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **importCourseWithoutUpload**
+> \Swagger\Client\Model\ImportResultSchema importCourseWithoutUpload($engine_tenant_name, $course_id, $import_request, $may_create_new_version, $dry_run)
+
+Create a course
+
+Import the specified course and return the results of the import. For large imports, it may be necessary to use importJobs instead to avoid timeouts.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Swagger\Client\Api\CourseApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
+$course_id = "course_id_example"; // string | A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.
+$import_request = new \Swagger\Client\Model\ImportRequestSchema(); // \Swagger\Client\Model\ImportRequestSchema | 
+$may_create_new_version = false; // bool | Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn't already exist.
+$dry_run = false; // bool | Validate the course can be imported (mainly by validating the manifest), but don't actually import it.
+
+try {
+    $result = $apiInstance->importCourseWithoutUpload($engine_tenant_name, $course_id, $import_request, $may_create_new_version, $dry_run);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseApi->importCourseWithoutUpload: ', $e->getMessage(), PHP_EOL;
@@ -1126,11 +1523,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\ImportRequestSchema**](../Model/ImportRequestSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
  **course_id** | **string**| A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use. |
- **may_create_new_version** | **bool**| Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#x27;t already exist. | [optional]
- **dry_run** | **bool**| Validate the course can be imported (mainly by validating the manifest), but don&#x27;t actually import it. | [optional]
+ **import_request** | [**\Swagger\Client\Model\ImportRequestSchema**](../Model/ImportRequestSchema.md)|  |
+ **may_create_new_version** | **bool**| Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. | [optional] [default to false]
+ **dry_run** | **bool**| Validate the course can be imported (mainly by validating the manifest), but don&#39;t actually import it. | [optional] [default to false]
 
 ### Return type
 
@@ -1148,7 +1545,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **setCourseConfiguration**
-> setCourseConfiguration($body, $engine_tenant_name, $course_id)
+> setCourseConfiguration($engine_tenant_name, $course_id, $configuration_settings)
 
 Set configuration settings for this course.
 
@@ -1156,6 +1553,7 @@ Set configuration settings for this course.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -1170,12 +1568,12 @@ $apiInstance = new Swagger\Client\Api\CourseApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\SettingsPostSchema(); // \Swagger\Client\Model\SettingsPostSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $course_id = "course_id_example"; // string | 
+$configuration_settings = new \Swagger\Client\Model\SettingsPostSchema(); // \Swagger\Client\Model\SettingsPostSchema | 
 
 try {
-    $apiInstance->setCourseConfiguration($body, $engine_tenant_name, $course_id);
+    $apiInstance->setCourseConfiguration($engine_tenant_name, $course_id, $configuration_settings);
 } catch (Exception $e) {
     echo 'Exception when calling CourseApi->setCourseConfiguration: ', $e->getMessage(), PHP_EOL;
 }
@@ -1186,9 +1584,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\SettingsPostSchema**](../Model/SettingsPostSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
  **course_id** | **string**|  |
+ **configuration_settings** | [**\Swagger\Client\Model\SettingsPostSchema**](../Model/SettingsPostSchema.md)|  |
 
 ### Return type
 
@@ -1206,7 +1604,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **setCourseTitle**
-> setCourseTitle($body, $engine_tenant_name, $course_id)
+> setCourseTitle($engine_tenant_name, $course_id, $title)
 
 Sets the course title for `courseId`
 
@@ -1214,6 +1612,7 @@ Sets the course title for `courseId`
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -1228,12 +1627,12 @@ $apiInstance = new Swagger\Client\Api\CourseApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\TitleSchema(); // \Swagger\Client\Model\TitleSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $course_id = "course_id_example"; // string | 
+$title = new \Swagger\Client\Model\TitleSchema(); // \Swagger\Client\Model\TitleSchema | 
 
 try {
-    $apiInstance->setCourseTitle($body, $engine_tenant_name, $course_id);
+    $apiInstance->setCourseTitle($engine_tenant_name, $course_id, $title);
 } catch (Exception $e) {
     echo 'Exception when calling CourseApi->setCourseTitle: ', $e->getMessage(), PHP_EOL;
 }
@@ -1244,9 +1643,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\TitleSchema**](../Model/TitleSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
  **course_id** | **string**|  |
+ **title** | [**\Swagger\Client\Model\TitleSchema**](../Model/TitleSchema.md)|  |
 
 ### Return type
 
@@ -1264,7 +1663,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **setCourseVersionConfiguration**
-> setCourseVersionConfiguration($body, $engine_tenant_name, $course_id, $version_id)
+> setCourseVersionConfiguration($engine_tenant_name, $course_id, $version_id, $configuration_settings)
 
 Set configuration settings for this course and version.
 
@@ -1272,6 +1671,7 @@ Set configuration settings for this course and version.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -1286,13 +1686,13 @@ $apiInstance = new Swagger\Client\Api\CourseApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\SettingsPostSchema(); // \Swagger\Client\Model\SettingsPostSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $course_id = "course_id_example"; // string | 
 $version_id = 56; // int | the course version
+$configuration_settings = new \Swagger\Client\Model\SettingsPostSchema(); // \Swagger\Client\Model\SettingsPostSchema | 
 
 try {
-    $apiInstance->setCourseVersionConfiguration($body, $engine_tenant_name, $course_id, $version_id);
+    $apiInstance->setCourseVersionConfiguration($engine_tenant_name, $course_id, $version_id, $configuration_settings);
 } catch (Exception $e) {
     echo 'Exception when calling CourseApi->setCourseVersionConfiguration: ', $e->getMessage(), PHP_EOL;
 }
@@ -1303,10 +1703,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\SettingsPostSchema**](../Model/SettingsPostSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
  **course_id** | **string**|  |
  **version_id** | **int**| the course version |
+ **configuration_settings** | [**\Swagger\Client\Model\SettingsPostSchema**](../Model/SettingsPostSchema.md)|  |
 
 ### Return type
 
@@ -1324,7 +1724,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **uploadAndImportCourse**
-> \Swagger\Client\Model\ImportResultSchema uploadAndImportCourse($engine_tenant_name, $course_id, $file, $uploaded_content_type, $may_create_new_version, $dry_run)
+> \Swagger\Client\Model\ImportResultSchema uploadAndImportCourse($engine_tenant_name, $course_id, $may_create_new_version, $dry_run, $file, $content_metadata, $uploaded_content_type)
 
 Upload a course to import
 
@@ -1334,6 +1734,7 @@ Upload and import the specified course and return the results of the import. For
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -1350,13 +1751,14 @@ $apiInstance = new Swagger\Client\Api\CourseApi(
 );
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $course_id = "course_id_example"; // string | A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use.
-$file = "file_example"; // string | 
-$uploaded_content_type = "uploaded_content_type_example"; // string | The MIME type identifier for the content to be uploaded
-$may_create_new_version = true; // bool | Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn't already exist.
-$dry_run = true; // bool | Validate the course can be imported (mainly by validating the manifest), but don't actually import it.
+$may_create_new_version = false; // bool | Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn't already exist.
+$dry_run = false; // bool | Validate the course can be imported (mainly by validating the manifest), but don't actually import it.
+$file = "/path/to/file.txt"; // \SplFileObject | The course content file to import.
+$content_metadata = "content_metadata_example"; // string | Serialized 'mediaFileMetadata' schema.
+$uploaded_content_type = "application/zip"; // string | The MIME type identifier for the content to be uploaded
 
 try {
-    $result = $apiInstance->uploadAndImportCourse($engine_tenant_name, $course_id, $file, $uploaded_content_type, $may_create_new_version, $dry_run);
+    $result = $apiInstance->uploadAndImportCourse($engine_tenant_name, $course_id, $may_create_new_version, $dry_run, $file, $content_metadata, $uploaded_content_type);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CourseApi->uploadAndImportCourse: ', $e->getMessage(), PHP_EOL;
@@ -1370,14 +1772,145 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **engine_tenant_name** | **string**| tenant for this request |
  **course_id** | **string**| A unique identifier your application will use to identify the course after import. Your application is responsible both for generating this unique ID and for keeping track of the ID for later use. |
- **file** | **string****string**|  | [optional]
- **uploaded_content_type** | **string**| The MIME type identifier for the content to be uploaded | [optional]
- **may_create_new_version** | **bool**| Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#x27;t already exist. | [optional]
- **dry_run** | **bool**| Validate the course can be imported (mainly by validating the manifest), but don&#x27;t actually import it. | [optional]
+ **may_create_new_version** | **bool**| Is it OK to create a new version of this course? If this is set to false and the course already exists, the upload will fail. If true and the course already exists then a new version will be created. No effect if the course doesn&#39;t already exist. | [optional] [default to false]
+ **dry_run** | **bool**| Validate the course can be imported (mainly by validating the manifest), but don&#39;t actually import it. | [optional] [default to false]
+ **file** | **\SplFileObject**| The course content file to import. | [optional]
+ **content_metadata** | **string**| Serialized &#39;mediaFileMetadata&#39; schema. | [optional]
+ **uploaded_content_type** | **string**| The MIME type identifier for the content to be uploaded | [optional] [default to application/zip]
 
 ### Return type
 
 [**\Swagger\Client\Model\ImportResultSchema**](../Model/ImportResultSchema.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **uploadCourseAssetFile**
+> \Swagger\Client\Model\AssetFileSchema uploadCourseAssetFile($engine_tenant_name, $course_id, $destination, $file, $update_asset_policy)
+
+Upload an asset file for this course.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Swagger\Client\Api\CourseApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
+$course_id = "course_id_example"; // string | 
+$destination = "destination_example"; // string | Path, relative to the course's Content Directory, that indicates where to store the uploaded asset file.
+$file = "/path/to/file.txt"; // \SplFileObject | The course content file to import.
+$update_asset_policy = "lax"; // string | Describes how Engine should handle importing asset files with respect to overwriting files. Valid values are 'reject', 'strict', and 'lax'. A 'reject' policy request will fail if the asset file already exists on the system ('overwriting' not allowed). A 'strict' policy request will fail if the asset file does not already exist ('overwriting' is required). A 'lax' policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).
+
+try {
+    $result = $apiInstance->uploadCourseAssetFile($engine_tenant_name, $course_id, $destination, $file, $update_asset_policy);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CourseApi->uploadCourseAssetFile: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **engine_tenant_name** | **string**| tenant for this request |
+ **course_id** | **string**|  |
+ **destination** | **string**| Path, relative to the course&#39;s Content Directory, that indicates where to store the uploaded asset file. |
+ **file** | **\SplFileObject**| The course content file to import. | [optional]
+ **update_asset_policy** | **string**| Describes how Engine should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases). | [optional] [default to lax]
+
+### Return type
+
+[**\Swagger\Client\Model\AssetFileSchema**](../Model/AssetFileSchema.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **uploadCourseVersionAssetFile**
+> \Swagger\Client\Model\AssetFileSchema uploadCourseVersionAssetFile($engine_tenant_name, $course_id, $version_id, $destination, $file, $update_asset_policy)
+
+Upload an asset file for this course version.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Swagger\Client\Api\CourseApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
+$course_id = "course_id_example"; // string | 
+$version_id = 56; // int | the course version
+$destination = "destination_example"; // string | Path, relative to the course's Content Directory, that indicates where to store the uploaded asset file.
+$file = "/path/to/file.txt"; // \SplFileObject | The course content file to import.
+$update_asset_policy = "lax"; // string | Describes how Engine should handle importing asset files with respect to overwriting files. Valid values are 'reject', 'strict', and 'lax'. A 'reject' policy request will fail if the asset file already exists on the system ('overwriting' not allowed). A 'strict' policy request will fail if the asset file does not already exist ('overwriting' is required). A 'lax' policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases).
+
+try {
+    $result = $apiInstance->uploadCourseVersionAssetFile($engine_tenant_name, $course_id, $version_id, $destination, $file, $update_asset_policy);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CourseApi->uploadCourseVersionAssetFile: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **engine_tenant_name** | **string**| tenant for this request |
+ **course_id** | **string**|  |
+ **version_id** | **int**| the course version |
+ **destination** | **string**| Path, relative to the course&#39;s Content Directory, that indicates where to store the uploaded asset file. |
+ **file** | **\SplFileObject**| The course content file to import. | [optional]
+ **update_asset_policy** | **string**| Describes how Engine should handle importing asset files with respect to overwriting files. Valid values are &#39;reject&#39;, &#39;strict&#39;, and &#39;lax&#39;. A &#39;reject&#39; policy request will fail if the asset file already exists on the system (&#39;overwriting&#39; not allowed). A &#39;strict&#39; policy request will fail if the asset file does not already exist (&#39;overwriting&#39; is required). A &#39;lax&#39; policy request will not consider whether the file already exists (i.e., it will attempt to import in all cases). | [optional] [default to lax]
+
+### Return type
+
+[**\Swagger\Client\Model\AssetFileSchema**](../Model/AssetFileSchema.md)
 
 ### Authorization
 

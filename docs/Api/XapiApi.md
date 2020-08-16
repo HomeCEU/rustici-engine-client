@@ -1,22 +1,23 @@
 # Swagger\Client\XapiApi
 
-All URIs are relative to */api/v2/*
+All URIs are relative to *http://localhost/api/v2/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createStatementPipe**](XapiApi.md#createstatementpipe) | **POST** /xapi/statementPipes | Create an xAPI statement pipe.
-[**createXapiCredential**](XapiApi.md#createxapicredential) | **POST** /xapi/credentials | Create an xAPI credential
-[**deleteStatementPipe**](XapiApi.md#deletestatementpipe) | **DELETE** /xapi/statementPipes/{statementPipeId} | Deletes the xAPI statement pipe specified with the id &#x60;statementPipeId&#x60;
-[**deleteXapiCredential**](XapiApi.md#deletexapicredential) | **DELETE** /xapi/credentials/{xapiCredentialId} | Deletes the xAPI credential specified with the id &#x60;xapiCredentialId&#x60;
-[**getStatementPipe**](XapiApi.md#getstatementpipe) | **GET** /xapi/statementPipes/{statementPipeId} | Retrieves xAPI statement pipe specified by id &#x60;statementPipeId.&#x60;
-[**getStatementPipes**](XapiApi.md#getstatementpipes) | **GET** /xapi/statementPipes | Get a list of all xAPI statement pipes
-[**getXapiCredential**](XapiApi.md#getxapicredential) | **GET** /xapi/credentials/{xapiCredentialId} | Retrieves the xAPI credential specified by id &#x60;xapiCredentialId&#x60;
-[**getXapiCredentials**](XapiApi.md#getxapicredentials) | **GET** /xapi/credentials | Get a list of all xAPI credentials
-[**setStatementPipe**](XapiApi.md#setstatementpipe) | **PUT** /xapi/statementPipes/{statementPipeId} | Either edits an existing xAPI statement pipe or creates a new one, specified by id &#x60;statementPipeId&#x60;
-[**setXapiCredential**](XapiApi.md#setxapicredential) | **PUT** /xapi/credentials/{xapiCredentialId} | Either edits an existing xAPI credential or creates a new one, specified by id &#x60;xapiCredentialId&#x60;
+[**createStatementPipe**](XapiApi.md#createStatementPipe) | **POST** /xapi/statementPipes | Create an xAPI statement pipe.
+[**createXapiCredential**](XapiApi.md#createXapiCredential) | **POST** /xapi/credentials | Create an xAPI credential
+[**deleteStatementPipe**](XapiApi.md#deleteStatementPipe) | **DELETE** /xapi/statementPipes/{statementPipeId} | Deletes the xAPI statement pipe specified with the id &#x60;statementPipeId&#x60;
+[**deleteXapiCredential**](XapiApi.md#deleteXapiCredential) | **DELETE** /xapi/credentials/{xapiCredentialId} | Deletes the xAPI credential specified with the id &#x60;xapiCredentialId&#x60;
+[**getStatementPipe**](XapiApi.md#getStatementPipe) | **GET** /xapi/statementPipes/{statementPipeId} | Retrieves xAPI statement pipe specified by id &#x60;statementPipeId.&#x60;
+[**getStatementPipes**](XapiApi.md#getStatementPipes) | **GET** /xapi/statementPipes | Get a list of all xAPI statement pipes
+[**getXapiCredential**](XapiApi.md#getXapiCredential) | **GET** /xapi/credentials/{xapiCredentialId} | Retrieves the xAPI credential specified by id &#x60;xapiCredentialId&#x60;
+[**getXapiCredentials**](XapiApi.md#getXapiCredentials) | **GET** /xapi/credentials | Get a list of all xAPI credentials
+[**setStatementPipe**](XapiApi.md#setStatementPipe) | **PUT** /xapi/statementPipes/{statementPipeId} | Either edits an existing xAPI statement pipe or creates a new one, specified by id &#x60;statementPipeId&#x60;
+[**setXapiCredential**](XapiApi.md#setXapiCredential) | **PUT** /xapi/credentials/{xapiCredentialId} | Either edits an existing xAPI credential or creates a new one, specified by id &#x60;xapiCredentialId&#x60;
+
 
 # **createStatementPipe**
-> \Swagger\Client\Model\StringResultSchema createStatementPipe($body, $engine_tenant_name)
+> \Swagger\Client\Model\StringResultSchema createStatementPipe($engine_tenant_name, $xapi_statement_pipe)
 
 Create an xAPI statement pipe.
 
@@ -24,6 +25,7 @@ Create an xAPI statement pipe.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -38,11 +40,11 @@ $apiInstance = new Swagger\Client\Api\XapiApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\XapiStatementPipePostSchema(); // \Swagger\Client\Model\XapiStatementPipePostSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
+$xapi_statement_pipe = new \Swagger\Client\Model\XapiStatementPipePostSchema(); // \Swagger\Client\Model\XapiStatementPipePostSchema | 
 
 try {
-    $result = $apiInstance->createStatementPipe($body, $engine_tenant_name);
+    $result = $apiInstance->createStatementPipe($engine_tenant_name, $xapi_statement_pipe);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling XapiApi->createStatementPipe: ', $e->getMessage(), PHP_EOL;
@@ -54,8 +56,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\XapiStatementPipePostSchema**](../Model/XapiStatementPipePostSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
+ **xapi_statement_pipe** | [**\Swagger\Client\Model\XapiStatementPipePostSchema**](../Model/XapiStatementPipePostSchema.md)|  |
 
 ### Return type
 
@@ -73,7 +75,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createXapiCredential**
-> \Swagger\Client\Model\StringResultSchema createXapiCredential($body, $engine_tenant_name)
+> \Swagger\Client\Model\StringResultSchema createXapiCredential($engine_tenant_name, $xapi_credential)
 
 Create an xAPI credential
 
@@ -81,6 +83,7 @@ Create an xAPI credential
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -95,11 +98,11 @@ $apiInstance = new Swagger\Client\Api\XapiApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\XapiCredentialPostSchema(); // \Swagger\Client\Model\XapiCredentialPostSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
+$xapi_credential = new \Swagger\Client\Model\XapiCredentialPostSchema(); // \Swagger\Client\Model\XapiCredentialPostSchema | 
 
 try {
-    $result = $apiInstance->createXapiCredential($body, $engine_tenant_name);
+    $result = $apiInstance->createXapiCredential($engine_tenant_name, $xapi_credential);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling XapiApi->createXapiCredential: ', $e->getMessage(), PHP_EOL;
@@ -111,8 +114,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\XapiCredentialPostSchema**](../Model/XapiCredentialPostSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
+ **xapi_credential** | [**\Swagger\Client\Model\XapiCredentialPostSchema**](../Model/XapiCredentialPostSchema.md)|  |
 
 ### Return type
 
@@ -140,6 +143,7 @@ Caution: avoid re-creating a statement pipe with the same ID quickly after a del
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -182,7 +186,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -196,6 +200,7 @@ Deletes the xAPI credential specified with the id `xapiCredentialId`
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -238,7 +243,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -252,6 +257,7 @@ Retrieves xAPI statement pipe specified by id `statementPipeId.`
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -295,7 +301,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -309,6 +315,7 @@ Get a list of all xAPI statement pipes
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -350,7 +357,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -364,6 +371,7 @@ Retrieves the xAPI credential specified by id `xapiCredentialId`
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -407,7 +415,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -421,6 +429,7 @@ Get a list of all xAPI credentials
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -452,7 +461,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **engine_tenant_name** | **string**| tenant for this request |
- **more** | **string**| Value for this parameter will be provided in the &#x27;more&#x27; property of lists, where needed. An opaque value, construction and parsing may change without notice. | [optional]
+ **more** | **string**| Value for this parameter will be provided in the &#39;more&#39; property of lists, where needed. An opaque value, construction and parsing may change without notice. | [optional]
 
 ### Return type
 
@@ -464,22 +473,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **setStatementPipe**
-> setStatementPipe($body, $engine_tenant_name, $statement_pipe_id)
+> setStatementPipe($engine_tenant_name, $statement_pipe_id, $xapi_statement_pipe)
 
 Either edits an existing xAPI statement pipe or creates a new one, specified by id `statementPipeId`
 
-Editing a statement pipe will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements. If the statement pipe being edited is currently being processed, the this request will fail with a status code of 409.
+Editing a statement pipe's url will cause it to start over and forward any statements it finds, even if the prior version of the pipe had already forwarded those statements.
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -494,12 +504,12 @@ $apiInstance = new Swagger\Client\Api\XapiApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\XapiStatementPipePutSchema(); // \Swagger\Client\Model\XapiStatementPipePutSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $statement_pipe_id = "statement_pipe_id_example"; // string | id for this xAPI statement pipe
+$xapi_statement_pipe = new \Swagger\Client\Model\XapiStatementPipePutSchema(); // \Swagger\Client\Model\XapiStatementPipePutSchema | 
 
 try {
-    $apiInstance->setStatementPipe($body, $engine_tenant_name, $statement_pipe_id);
+    $apiInstance->setStatementPipe($engine_tenant_name, $statement_pipe_id, $xapi_statement_pipe);
 } catch (Exception $e) {
     echo 'Exception when calling XapiApi->setStatementPipe: ', $e->getMessage(), PHP_EOL;
 }
@@ -510,9 +520,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\XapiStatementPipePutSchema**](../Model/XapiStatementPipePutSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
  **statement_pipe_id** | **string**| id for this xAPI statement pipe |
+ **xapi_statement_pipe** | [**\Swagger\Client\Model\XapiStatementPipePutSchema**](../Model/XapiStatementPipePutSchema.md)|  |
 
 ### Return type
 
@@ -530,7 +540,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **setXapiCredential**
-> setXapiCredential($body, $engine_tenant_name, $xapi_credential_id)
+> setXapiCredential($engine_tenant_name, $xapi_credential_id, $xapi_credential)
 
 Either edits an existing xAPI credential or creates a new one, specified by id `xapiCredentialId`
 
@@ -538,6 +548,7 @@ Either edits an existing xAPI credential or creates a new one, specified by id `
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -552,12 +563,12 @@ $apiInstance = new Swagger\Client\Api\XapiApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\XapiCredentialPutSchema(); // \Swagger\Client\Model\XapiCredentialPutSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $xapi_credential_id = "xapi_credential_id_example"; // string | id for this xAPI credential
+$xapi_credential = new \Swagger\Client\Model\XapiCredentialPutSchema(); // \Swagger\Client\Model\XapiCredentialPutSchema | 
 
 try {
-    $apiInstance->setXapiCredential($body, $engine_tenant_name, $xapi_credential_id);
+    $apiInstance->setXapiCredential($engine_tenant_name, $xapi_credential_id, $xapi_credential);
 } catch (Exception $e) {
     echo 'Exception when calling XapiApi->setXapiCredential: ', $e->getMessage(), PHP_EOL;
 }
@@ -568,9 +579,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\XapiCredentialPutSchema**](../Model/XapiCredentialPutSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
  **xapi_credential_id** | **string**| id for this xAPI credential |
+ **xapi_credential** | [**\Swagger\Client\Model\XapiCredentialPutSchema**](../Model/XapiCredentialPutSchema.md)|  |
 
 ### Return type
 
