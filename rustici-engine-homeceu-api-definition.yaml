@@ -2101,7 +2101,7 @@ paths:
             - SCORM12
             - SCORM2004-3RD
             - AICC
-          default: '"SCORM12"'
+          default: 'SCORM12'
       responses:
         '200':
           description: ''
@@ -2619,7 +2619,7 @@ paths:
             - SCORM12
             - SCORM2004-3RD
             - AICC
-          default: '"SCORM12"'
+          default: 'SCORM12'
       responses:
         '200':
           description: ''

@@ -2330,7 +2330,7 @@ class DispatchApi
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
-    public function getDestinationDispatchZip($engine_tenant_name, $destination_id, $type = '"SCORM12"')
+    public function getDestinationDispatchZip($engine_tenant_name, $destination_id, $type = 'SCORM12')
     {
         list($response) = $this->getDestinationDispatchZipWithHttpInfo($engine_tenant_name, $destination_id, $type);
         return $response;
@@ -2349,7 +2349,7 @@ class DispatchApi
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDestinationDispatchZipWithHttpInfo($engine_tenant_name, $destination_id, $type = '"SCORM12"')
+    public function getDestinationDispatchZipWithHttpInfo($engine_tenant_name, $destination_id, $type = 'SCORM12')
     {
         $returnType = '\SplFileObject';
         $request = $this->getDestinationDispatchZipRequest($engine_tenant_name, $destination_id, $type);
@@ -2441,7 +2441,7 @@ class DispatchApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDestinationDispatchZipAsync($engine_tenant_name, $destination_id, $type = '"SCORM12"')
+    public function getDestinationDispatchZipAsync($engine_tenant_name, $destination_id, $type = 'SCORM12')
     {
         return $this->getDestinationDispatchZipAsyncWithHttpInfo($engine_tenant_name, $destination_id, $type)
             ->then(
@@ -2463,7 +2463,7 @@ class DispatchApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDestinationDispatchZipAsyncWithHttpInfo($engine_tenant_name, $destination_id, $type = '"SCORM12"')
+    public function getDestinationDispatchZipAsyncWithHttpInfo($engine_tenant_name, $destination_id, $type = 'SCORM12')
     {
         $returnType = '\SplFileObject';
         $request = $this->getDestinationDispatchZipRequest($engine_tenant_name, $destination_id, $type);
@@ -2515,7 +2515,7 @@ class DispatchApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getDestinationDispatchZipRequest($engine_tenant_name, $destination_id, $type = '"SCORM12"')
+    protected function getDestinationDispatchZipRequest($engine_tenant_name, $destination_id, $type = 'SCORM12')
     {
         // verify the required parameter 'engine_tenant_name' is set
         if ($engine_tenant_name === null || (is_array($engine_tenant_name) && count($engine_tenant_name) === 0)) {
@@ -4223,7 +4223,7 @@ class DispatchApi
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
-    public function getDispatchZip($engine_tenant_name, $dispatch_id, $type = '"SCORM12"')
+    public function getDispatchZip($engine_tenant_name, $dispatch_id, $type = 'SCORM12')
     {
         list($response) = $this->getDispatchZipWithHttpInfo($engine_tenant_name, $dispatch_id, $type);
         return $response;
@@ -4242,7 +4242,7 @@ class DispatchApi
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDispatchZipWithHttpInfo($engine_tenant_name, $dispatch_id, $type = '"SCORM12"')
+    public function getDispatchZipWithHttpInfo($engine_tenant_name, $dispatch_id, $type = 'SCORM12')
     {
         $returnType = '\SplFileObject';
         $request = $this->getDispatchZipRequest($engine_tenant_name, $dispatch_id, $type);
@@ -4326,7 +4326,7 @@ class DispatchApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDispatchZipAsync($engine_tenant_name, $dispatch_id, $type = '"SCORM12"')
+    public function getDispatchZipAsync($engine_tenant_name, $dispatch_id, $type = 'SCORM12')
     {
         return $this->getDispatchZipAsyncWithHttpInfo($engine_tenant_name, $dispatch_id, $type)
             ->then(
@@ -4348,7 +4348,7 @@ class DispatchApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDispatchZipAsyncWithHttpInfo($engine_tenant_name, $dispatch_id, $type = '"SCORM12"')
+    public function getDispatchZipAsyncWithHttpInfo($engine_tenant_name, $dispatch_id, $type = 'SCORM12')
     {
         $returnType = '\SplFileObject';
         $request = $this->getDispatchZipRequest($engine_tenant_name, $dispatch_id, $type);
@@ -4400,7 +4400,7 @@ class DispatchApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getDispatchZipRequest($engine_tenant_name, $dispatch_id, $type = '"SCORM12"')
+    protected function getDispatchZipRequest($engine_tenant_name, $dispatch_id, $type = 'SCORM12')
     {
         // verify the required parameter 'engine_tenant_name' is set
         if ($engine_tenant_name === null || (is_array($engine_tenant_name) && count($engine_tenant_name) === 0)) {
