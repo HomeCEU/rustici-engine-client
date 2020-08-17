@@ -4275,15 +4275,7 @@ class DispatchApi
                 );
             }
 
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
+            $content = $response->getBody();
 
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
