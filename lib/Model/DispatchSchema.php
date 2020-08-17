@@ -64,7 +64,6 @@ class DispatchSchema implements ModelInterface, ArrayAccess
         'registration_cap' => 'int',
         'expiration_date' => '\DateTime',
         'enabled' => 'bool',
-        'registration_count' => 'int',
         'registration_reset_date' => '\DateTime'
     ];
 
@@ -81,7 +80,6 @@ class DispatchSchema implements ModelInterface, ArrayAccess
         'registration_cap' => 'int32',
         'expiration_date' => 'date-time',
         'enabled' => null,
-        'registration_count' => 'int32',
         'registration_reset_date' => 'date-time'
     ];
 
@@ -119,7 +117,6 @@ class DispatchSchema implements ModelInterface, ArrayAccess
         'registration_cap' => 'registrationCap',
         'expiration_date' => 'expirationDate',
         'enabled' => 'enabled',
-        'registration_count' => 'registrationCount',
         'registration_reset_date' => 'registrationResetDate'
     ];
 
@@ -224,7 +221,6 @@ class DispatchSchema implements ModelInterface, ArrayAccess
         $this->container['registration_cap'] = isset($data['registration_cap']) ? $data['registration_cap'] : 0;
         $this->container['expiration_date'] = isset($data['expiration_date']) ? $data['expiration_date'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : false;
-        $this->container['registration_count'] = isset($data['registration_count']) ? $data['registration_count'] : 0;
         $this->container['registration_reset_date'] = isset($data['registration_reset_date']) ? $data['registration_reset_date'] : null;
     }
 
@@ -422,30 +418,6 @@ class DispatchSchema implements ModelInterface, ArrayAccess
     public function setEnabled($enabled)
     {
         $this->container['enabled'] = $enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets registration_count
-     *
-     * @return int
-     */
-    public function getRegistrationCount()
-    {
-        return $this->container['registration_count'];
-    }
-
-    /**
-     * Sets registration_count
-     *
-     * @param int $registration_count The number of registrations created for this dispatch.
-     *
-     * @return $this
-     */
-    public function setRegistrationCount($registration_count)
-    {
-        $this->container['registration_count'] = $registration_count;
 
         return $this;
     }
