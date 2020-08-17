@@ -1,10 +1,11 @@
 # Swagger\Client\PingApi
 
-All URIs are relative to */api/v2/*
+All URIs are relative to *http://localhost/api/v2/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ping**](PingApi.md#ping) | **GET** /ping | Get back a message indicating that the API is working.
+
 
 # **ping**
 > \Swagger\Client\Model\PingSchema ping($engine_tenant_name)
@@ -15,6 +16,7 @@ Get back a message indicating that the API is working.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -56,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

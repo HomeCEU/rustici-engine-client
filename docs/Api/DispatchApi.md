@@ -1,43 +1,53 @@
 # Swagger\Client\DispatchApi
 
-All URIs are relative to */api/v2/*
+All URIs are relative to *http://localhost/api/v2/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createDestinations**](DispatchApi.md#createdestinations) | **POST** /dispatch/destinations | Create multiple destinations
-[**createDispatches**](DispatchApi.md#createdispatches) | **POST** /dispatch/dispatches | Create multiple dispatches
-[**deleteDestination**](DispatchApi.md#deletedestination) | **DELETE** /dispatch/destinations/{destinationId} | Delete the destination with id &#x60;destinationId&#x60;
-[**deleteDestinationDispatches**](DispatchApi.md#deletedestinationdispatches) | **DELETE** /dispatch/destinations/{destinationId}/dispatches | Delete all dispatches associated with this destination
-[**deleteDispatch**](DispatchApi.md#deletedispatch) | **DELETE** /dispatch/dispatches/{dispatchId} | Delete the dispatch with id &#x60;dispatchId&#x60;
-[**enableRegistrationInstancing**](DispatchApi.md#enableregistrationinstancing) | **POST** /dispatch/destinations/{destinationId}/dispatches/registrationInstancing | Enable or disable registration instancing
-[**getDestination**](DispatchApi.md#getdestination) | **GET** /dispatch/destinations/{destinationId} | Get the destination with id &#x60;destinationId&#x60;
-[**getDestinationDispatchRegistrationCount**](DispatchApi.md#getdestinationdispatchregistrationcount) | **GET** /dispatch/destinations/{destinationId}/registrationCount | Get the registration count for all related dispatch registrations
-[**getDestinationDispatchZip**](DispatchApi.md#getdestinationdispatchzip) | **GET** /dispatch/destinations/{destinationId}/dispatches/zip | Get a ZIP file containing all dispatch packages related to a destination.
-[**getDestinationDispatches**](DispatchApi.md#getdestinationdispatches) | **GET** /dispatch/destinations/{destinationId}/dispatches | Get a list of related dispatches
-[**getDestinations**](DispatchApi.md#getdestinations) | **GET** /dispatch/destinations | Get a list of destinations
-[**getDispatch**](DispatchApi.md#getdispatch) | **GET** /dispatch/dispatches/{dispatchId} | Get the dispatch with id &#x60;dispatchId&#x60;
-[**getDispatchEnabled**](DispatchApi.md#getdispatchenabled) | **GET** /dispatch/dispatches/{dispatchId}/enabled | Returns boolean indicating if dispatch with id &#x60;dispatchId&#x60; is enabled
-[**getDispatchRegistrationCount**](DispatchApi.md#getdispatchregistrationcount) | **GET** /dispatch/dispatches/{dispatchId}/registrationCount | Get the registration count for this dispatch, and the date and time of the last count reset, if any.
-[**getDispatchZip**](DispatchApi.md#getdispatchzip) | **GET** /dispatch/dispatches/{dispatchId}/zip | Get the ZIP dispatch package.
-[**getDispatches**](DispatchApi.md#getdispatches) | **GET** /dispatch/dispatches | Get a list of dispatches
-[**getLTIDispatch**](DispatchApi.md#getltidispatch) | **GET** /dispatch/dispatches/{dispatchId}/lti | Get the information necessary to launch this dispatch using the IMS LTI specification.
-[**postDispatchLtiReporters**](DispatchApi.md#postdispatchltireporters) | **POST** /dispatch/ltiReporters | Set up a temporary LTI reporter; for use by products that use their own LTI entry points
-[**resetDestinationDispatchRegistrationCount**](DispatchApi.md#resetdestinationdispatchregistrationcount) | **DELETE** /dispatch/destinations/{destinationId}/registrationCount | Reset the registration count for related dispatches.
-[**resetDispatchRegistrationCount**](DispatchApi.md#resetdispatchregistrationcount) | **DELETE** /dispatch/dispatches/{dispatchId}/registrationCount | Reset the registration count for this dispatch.
-[**setDestination**](DispatchApi.md#setdestination) | **PUT** /dispatch/destinations/{destinationId} | Create or update the destination with id &#x60;destinationId&#x60;
-[**setDestinationDispatchEnabled**](DispatchApi.md#setdestinationdispatchenabled) | **POST** /dispatch/destinations/{destinationId}/dispatches/enabled | Enable or disable all related dispatches
-[**setDispatchEnabled**](DispatchApi.md#setdispatchenabled) | **PUT** /dispatch/dispatches/{dispatchId}/enabled | Enable or disable the dispatch
-[**updateDispatch**](DispatchApi.md#updatedispatch) | **PUT** /dispatch/dispatches/{dispatchId} | Update the dispatch with id &#x60;dispatchId&#x60;
+[**createDestinations**](DispatchApi.md#createDestinations) | **POST** /dispatch/destinations | Create one or more destinations
+[**createDispatches**](DispatchApi.md#createDispatches) | **POST** /dispatch/dispatches | Create multiple dispatches
+[**deleteDestination**](DispatchApi.md#deleteDestination) | **DELETE** /dispatch/destinations/{destinationId} | Delete the destination with id &#x60;destinationId&#x60;
+[**deleteDestinationDispatches**](DispatchApi.md#deleteDestinationDispatches) | **DELETE** /dispatch/destinations/{destinationId}/dispatches | Delete all dispatches associated with this destination
+[**deleteDispatch**](DispatchApi.md#deleteDispatch) | **DELETE** /dispatch/dispatches/{dispatchId} | Delete the dispatch with id &#x60;dispatchId&#x60;
+[**enableRegistrationInstancing**](DispatchApi.md#enableRegistrationInstancing) | **POST** /dispatch/destinations/{destinationId}/dispatches/registrationInstancing | Enable or disable registration instancing
+[**getDestination**](DispatchApi.md#getDestination) | **GET** /dispatch/destinations/{destinationId} | Get the destination with id &#x60;destinationId&#x60;
+[**getDestinationDispatchRegistrationCount**](DispatchApi.md#getDestinationDispatchRegistrationCount) | **GET** /dispatch/destinations/{destinationId}/registrationCount | Get the registration count for all related dispatch registrations
+[**getDestinationDispatchZip**](DispatchApi.md#getDestinationDispatchZip) | **GET** /dispatch/destinations/{destinationId}/dispatches/zip | Get a ZIP file containing all dispatch packages related to a destination.
+[**getDestinationDispatches**](DispatchApi.md#getDestinationDispatches) | **GET** /dispatch/destinations/{destinationId}/dispatches | Get a list of related dispatches
+[**getDestinations**](DispatchApi.md#getDestinations) | **GET** /dispatch/destinations | Get a list of destinations
+[**getDispatch**](DispatchApi.md#getDispatch) | **GET** /dispatch/dispatches/{dispatchId} | Get the dispatch with id &#x60;dispatchId&#x60;
+[**getDispatchEnabled**](DispatchApi.md#getDispatchEnabled) | **GET** /dispatch/dispatches/{dispatchId}/enabled | Returns boolean indicating if dispatch with id &#x60;dispatchId&#x60; is enabled
+[**getDispatchRegistrationCount**](DispatchApi.md#getDispatchRegistrationCount) | **GET** /dispatch/dispatches/{dispatchId}/registrationCount | Get the registration count for this dispatch, and the date and time of the last count reset, if any.
+[**getDispatchZip**](DispatchApi.md#getDispatchZip) | **GET** /dispatch/dispatches/{dispatchId}/zip | Get the ZIP dispatch package.
+[**getDispatches**](DispatchApi.md#getDispatches) | **GET** /dispatch/dispatches | Get a list of dispatches
+[**getLTIDispatch**](DispatchApi.md#getLTIDispatch) | **GET** /dispatch/dispatches/{dispatchId}/lti | Get the information necessary to launch this dispatch using the IMS LTI specification.
+[**getLti13Dispatch**](DispatchApi.md#getLti13Dispatch) | **GET** /dispatch/dispatches/{dispatchId}/lti13 | Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification.
+[**getLti13DispatchLaunch**](DispatchApi.md#getLti13DispatchLaunch) | **GET** /dispatch/dispatches/{dispatchId}/launches | Launch this dispatch using the IMS LTI 1.3 specification.
+[**getLti13OidcLoginInitiation**](DispatchApi.md#getLti13OidcLoginInitiation) | **GET** /dispatch/destinations/{destinationId}/oidcLoginInitiation | Initiate an OIDC Login flow for the destination with id &#x60;destinationId&#x60;
+[**getLti13ToolConfigurationSchema**](DispatchApi.md#getLti13ToolConfigurationSchema) | **GET** /dispatch/destinations/{destinationId}/lti13 | Get the information needed to configure a LTI 1.3 platform with the destination id &#x60;destinationId&#x60;
+[**getToolJsonWebKeySet**](DispatchApi.md#getToolJsonWebKeySet) | **GET** /dispatch/destinations/{destinationId}/jwks | Get JSON Web Key Set
+[**postDispatchLtiReporters**](DispatchApi.md#postDispatchLtiReporters) | **POST** /dispatch/ltiReporters | Set up a temporary LTI reporter; for use by products that use their own LTI entry points
+[**postLti13AuthorizationResponse**](DispatchApi.md#postLti13AuthorizationResponse) | **POST** /dispatch/destinations/{destinationId}/launches | Process an LTI 1.3 OIDC Authorization Response for the destination with id &#x60;destinationId&#x60;
+[**postLti13OidcLoginInitiation**](DispatchApi.md#postLti13OidcLoginInitiation) | **POST** /dispatch/destinations/{destinationId}/oidcLoginInitiation | Initiate an OIDC Login flow for the destination with id &#x60;destinationId&#x60;
+[**postRotateToolKeys**](DispatchApi.md#postRotateToolKeys) | **POST** /dispatch/destinations/{destinationId}/rotateKeys | Rotate RSA Keys
+[**resetDestinationDispatchRegistrationCount**](DispatchApi.md#resetDestinationDispatchRegistrationCount) | **DELETE** /dispatch/destinations/{destinationId}/registrationCount | Reset the registration count for related dispatches.
+[**resetDispatchRegistrationCount**](DispatchApi.md#resetDispatchRegistrationCount) | **DELETE** /dispatch/dispatches/{dispatchId}/registrationCount | Reset the registration count for this dispatch.
+[**setDestination**](DispatchApi.md#setDestination) | **PUT** /dispatch/destinations/{destinationId} | Update the destination with id &#x60;destinationId&#x60;
+[**setDestinationDispatchEnabled**](DispatchApi.md#setDestinationDispatchEnabled) | **POST** /dispatch/destinations/{destinationId}/dispatches/enabled | Enable or disable all related dispatches
+[**setDispatchEnabled**](DispatchApi.md#setDispatchEnabled) | **PUT** /dispatch/dispatches/{dispatchId}/enabled | Enable or disable the dispatch
+[**updateDispatch**](DispatchApi.md#updateDispatch) | **PUT** /dispatch/dispatches/{dispatchId} | Update the dispatch with id &#x60;dispatchId&#x60;
+
 
 # **createDestinations**
-> createDestinations($body, $engine_tenant_name)
+> createDestinations($engine_tenant_name, $destinations_list)
 
-Create multiple destinations
+Create one or more destinations
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -52,11 +62,11 @@ $apiInstance = new Swagger\Client\Api\DispatchApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\DestinationListSchema(); // \Swagger\Client\Model\DestinationListSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
+$destinations_list = new \Swagger\Client\Model\DestinationListSchema(); // \Swagger\Client\Model\DestinationListSchema | 
 
 try {
-    $apiInstance->createDestinations($body, $engine_tenant_name);
+    $apiInstance->createDestinations($engine_tenant_name, $destinations_list);
 } catch (Exception $e) {
     echo 'Exception when calling DispatchApi->createDestinations: ', $e->getMessage(), PHP_EOL;
 }
@@ -67,8 +77,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\DestinationListSchema**](../Model/DestinationListSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
+ **destinations_list** | [**\Swagger\Client\Model\DestinationListSchema**](../Model/DestinationListSchema.md)|  |
 
 ### Return type
 
@@ -86,7 +96,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createDispatches**
-> createDispatches($body, $engine_tenant_name)
+> createDispatches($engine_tenant_name, $dispatch_list)
 
 Create multiple dispatches
 
@@ -94,6 +104,7 @@ Create multiple dispatches
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -108,11 +119,11 @@ $apiInstance = new Swagger\Client\Api\DispatchApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\CreateDispatchListSchema(); // \Swagger\Client\Model\CreateDispatchListSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
+$dispatch_list = new \Swagger\Client\Model\CreateDispatchListSchema(); // \Swagger\Client\Model\CreateDispatchListSchema | 
 
 try {
-    $apiInstance->createDispatches($body, $engine_tenant_name);
+    $apiInstance->createDispatches($engine_tenant_name, $dispatch_list);
 } catch (Exception $e) {
     echo 'Exception when calling DispatchApi->createDispatches: ', $e->getMessage(), PHP_EOL;
 }
@@ -123,8 +134,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\CreateDispatchListSchema**](../Model/CreateDispatchListSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
+ **dispatch_list** | [**\Swagger\Client\Model\CreateDispatchListSchema**](../Model/CreateDispatchListSchema.md)|  |
 
 ### Return type
 
@@ -150,6 +161,7 @@ Delete the destination with id `destinationId`
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -192,7 +204,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -206,6 +218,7 @@ Delete all dispatches associated with this destination
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -248,7 +261,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -262,6 +275,7 @@ Delete the dispatch with id `dispatchId`
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -304,13 +318,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **enableRegistrationInstancing**
-> enableRegistrationInstancing($body, $engine_tenant_name, $destination_id)
+> enableRegistrationInstancing($engine_tenant_name, $destination_id, $enabled)
 
 Enable or disable registration instancing
 
@@ -318,6 +332,7 @@ Enable or disable registration instancing
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -332,12 +347,12 @@ $apiInstance = new Swagger\Client\Api\DispatchApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\EnabledSchema(); // \Swagger\Client\Model\EnabledSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $destination_id = "destination_id_example"; // string | 
+$enabled = new \Swagger\Client\Model\EnabledSchema(); // \Swagger\Client\Model\EnabledSchema | 
 
 try {
-    $apiInstance->enableRegistrationInstancing($body, $engine_tenant_name, $destination_id);
+    $apiInstance->enableRegistrationInstancing($engine_tenant_name, $destination_id, $enabled);
 } catch (Exception $e) {
     echo 'Exception when calling DispatchApi->enableRegistrationInstancing: ', $e->getMessage(), PHP_EOL;
 }
@@ -348,9 +363,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\EnabledSchema**](../Model/EnabledSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
  **destination_id** | **string**|  |
+ **enabled** | [**\Swagger\Client\Model\EnabledSchema**](../Model/EnabledSchema.md)|  |
 
 ### Return type
 
@@ -376,6 +391,7 @@ Get the destination with id `destinationId`
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -419,7 +435,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -433,6 +449,7 @@ Get the registration count for all related dispatch registrations
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -476,13 +493,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDestinationDispatchZip**
-> string getDestinationDispatchZip($engine_tenant_name, $destination_id, $type)
+> \SplFileObject getDestinationDispatchZip($engine_tenant_name, $destination_id, $type)
 
 Get a ZIP file containing all dispatch packages related to a destination.
 
@@ -490,6 +507,7 @@ Get a ZIP file containing all dispatch packages related to a destination.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -506,7 +524,7 @@ $apiInstance = new Swagger\Client\Api\DispatchApi(
 );
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $destination_id = "destination_id_example"; // string | 
-$type = "type_example"; // string | The type of dispatch package to export (SCORM12, SCORM2004-3RD or AICC)
+$type = "\"SCORM12\""; // string | The type of dispatch package to export (SCORM12, SCORM2004-3RD or AICC)
 
 try {
     $result = $apiInstance->getDestinationDispatchZip($engine_tenant_name, $destination_id, $type);
@@ -523,11 +541,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **engine_tenant_name** | **string**| tenant for this request |
  **destination_id** | **string**|  |
- **type** | **string**| The type of dispatch package to export (SCORM12, SCORM2004-3RD or AICC) | [optional]
+ **type** | **string**| The type of dispatch package to export (SCORM12, SCORM2004-3RD or AICC) | [optional] [default to &quot;SCORM12&quot;]
 
 ### Return type
 
-**string**
+[**\SplFileObject**](../Model/\SplFileObject.md)
 
 ### Authorization
 
@@ -535,7 +553,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/zip
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -549,6 +567,7 @@ Get a list of related dispatches
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -584,7 +603,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **engine_tenant_name** | **string**| tenant for this request |
  **destination_id** | **string**|  |
- **more** | **string**| Value for this parameter will be provided in the &#x27;more&#x27; property of lists, where needed. An opaque value, construction and parsing may change without notice. | [optional]
+ **more** | **string**| Value for this parameter will be provided in the &#39;more&#39; property of lists, where needed. An opaque value, construction and parsing may change without notice. | [optional]
  **since** | **\DateTime**| Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. | [optional]
  **until** | **\DateTime**| Only items updated up until the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. | [optional]
 
@@ -598,7 +617,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -612,6 +631,7 @@ Get a list of destinations
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -646,7 +666,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **engine_tenant_name** | **string**| tenant for this request |
- **more** | **string**| Value for this parameter will be provided in the &#x27;more&#x27; property of lists, where needed. An opaque value, construction and parsing may change without notice. | [optional]
+ **more** | **string**| Value for this parameter will be provided in the &#39;more&#39; property of lists, where needed. An opaque value, construction and parsing may change without notice. | [optional]
  **since** | **\DateTime**| Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. | [optional]
  **until** | **\DateTime**| Only items updated up until the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. | [optional]
  **course_id** | **string**| Limit the results to destinations that have dispatches of the specified course | [optional]
@@ -661,7 +681,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -675,6 +695,7 @@ Get the dispatch with id `dispatchId`
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -718,7 +739,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -732,6 +753,7 @@ Returns boolean indicating if dispatch with id `dispatchId` is enabled
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -775,7 +797,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -789,6 +811,7 @@ Get the registration count for this dispatch, and the date and time of the last 
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -832,13 +855,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDispatchZip**
-> string getDispatchZip($engine_tenant_name, $dispatch_id, $type)
+> \SplFileObject getDispatchZip($engine_tenant_name, $dispatch_id, $type)
 
 Get the ZIP dispatch package.
 
@@ -846,6 +869,7 @@ Get the ZIP dispatch package.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -862,7 +886,7 @@ $apiInstance = new Swagger\Client\Api\DispatchApi(
 );
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $dispatch_id = "dispatch_id_example"; // string | 
-$type = "type_example"; // string | The type of dispatch package to export (SCORM12, SCORM2004-3RD or AICC)
+$type = "\"SCORM12\""; // string | The type of dispatch package to export (SCORM12, SCORM2004-3RD or AICC)
 
 try {
     $result = $apiInstance->getDispatchZip($engine_tenant_name, $dispatch_id, $type);
@@ -879,11 +903,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **engine_tenant_name** | **string**| tenant for this request |
  **dispatch_id** | **string**|  |
- **type** | **string**| The type of dispatch package to export (SCORM12, SCORM2004-3RD or AICC) | [optional]
+ **type** | **string**| The type of dispatch package to export (SCORM12, SCORM2004-3RD or AICC) | [optional] [default to &quot;SCORM12&quot;]
 
 ### Return type
 
-**string**
+[**\SplFileObject**](../Model/\SplFileObject.md)
 
 ### Authorization
 
@@ -891,7 +915,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/zip
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -905,6 +929,7 @@ Get a list of dispatches
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -939,7 +964,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **engine_tenant_name** | **string**| tenant for this request |
- **more** | **string**| Value for this parameter will be provided in the &#x27;more&#x27; property of lists, where needed. An opaque value, construction and parsing may change without notice. | [optional]
+ **more** | **string**| Value for this parameter will be provided in the &#39;more&#39; property of lists, where needed. An opaque value, construction and parsing may change without notice. | [optional]
  **since** | **\DateTime**| Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. | [optional]
  **until** | **\DateTime**| Only items updated up until the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. | [optional]
  **course_id** | **string**| Limit the results to dispatches of the specified course | [optional]
@@ -954,7 +979,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -968,6 +993,7 @@ Get the information necessary to launch this dispatch using the IMS LTI specific
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -1011,20 +1037,21 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **postDispatchLtiReporters**
-> \Swagger\Client\Model\LtiReporterIdSchema postDispatchLtiReporters($body, $engine_tenant_name)
+# **getLti13Dispatch**
+> \Swagger\Client\Model\DispatchLti13InfoSchema getLti13Dispatch($engine_tenant_name, $dispatch_id)
 
-Set up a temporary LTI reporter; for use by products that use their own LTI entry points
+Get the information necessary to import this dispatch as a resource link according to the IMS LTI 1.3 specification.
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -1039,11 +1066,294 @@ $apiInstance = new Swagger\Client\Api\DispatchApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\LtiReporterSchema(); // \Swagger\Client\Model\LtiReporterSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
+$dispatch_id = "dispatch_id_example"; // string | 
 
 try {
-    $result = $apiInstance->postDispatchLtiReporters($body, $engine_tenant_name);
+    $result = $apiInstance->getLti13Dispatch($engine_tenant_name, $dispatch_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DispatchApi->getLti13Dispatch: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **engine_tenant_name** | **string**| tenant for this request |
+ **dispatch_id** | **string**|  |
+
+### Return type
+
+[**\Swagger\Client\Model\DispatchLti13InfoSchema**](../Model/DispatchLti13InfoSchema.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getLti13DispatchLaunch**
+> getLti13DispatchLaunch($external_config, $dispatch_id, $learner_id, $learner_full_name, $redirect_on_exit_url, $lti_outcome_info)
+
+Launch this dispatch using the IMS LTI 1.3 specification.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$apiInstance = new Swagger\Client\Api\DispatchApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$external_config = "external_config_example"; // string | External configuration object
+$dispatch_id = "dispatch_id_example"; // string | 
+$learner_id = "learner_id_example"; // string | 
+$learner_full_name = "learner_full_name_example"; // string | 
+$redirect_on_exit_url = "redirect_on_exit_url_example"; // string | 
+$lti_outcome_info = "lti_outcome_info_example"; // string | 
+
+try {
+    $apiInstance->getLti13DispatchLaunch($external_config, $dispatch_id, $learner_id, $learner_full_name, $redirect_on_exit_url, $lti_outcome_info);
+} catch (Exception $e) {
+    echo 'Exception when calling DispatchApi->getLti13DispatchLaunch: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **external_config** | **string**| External configuration object |
+ **dispatch_id** | **string**|  |
+ **learner_id** | **string**|  |
+ **learner_full_name** | **string**|  | [optional]
+ **redirect_on_exit_url** | **string**|  | [optional]
+ **lti_outcome_info** | **string**|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getLti13OidcLoginInitiation**
+> getLti13OidcLoginInitiation($external_config, $destination_id, $login_hint, $iss, $target_link_uri, $lti_message_hint, $lti_deployment_id, $client_id)
+
+Initiate an OIDC Login flow for the destination with id `destinationId`
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$apiInstance = new Swagger\Client\Api\DispatchApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$external_config = "external_config_example"; // string | External configuration object
+$destination_id = "destination_id_example"; // string | 
+$login_hint = "login_hint_example"; // string | Tool-opaque login identifier
+$iss = "iss_example"; // string | Issuer identifying the learning platform
+$target_link_uri = "target_link_uri_example"; // string | Endpoint to be at the end of the OIDC authentication flow.
+$lti_message_hint = "lti_message_hint_example"; // string | Tool-opaque login identifier
+$lti_deployment_id = "lti_deployment_id_example"; // string | Deployment id that would be passed in the https://purl.imsglobal.org/spec/lti/claim/deployment_id claim in an OIDC Authorization Response
+$client_id = "client_id_example"; // string | Client id that should be used to authorize the subsequent LTI message request.
+
+try {
+    $apiInstance->getLti13OidcLoginInitiation($external_config, $destination_id, $login_hint, $iss, $target_link_uri, $lti_message_hint, $lti_deployment_id, $client_id);
+} catch (Exception $e) {
+    echo 'Exception when calling DispatchApi->getLti13OidcLoginInitiation: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **external_config** | **string**| External configuration object |
+ **destination_id** | **string**|  |
+ **login_hint** | **string**| Tool-opaque login identifier |
+ **iss** | **string**| Issuer identifying the learning platform |
+ **target_link_uri** | **string**| Endpoint to be at the end of the OIDC authentication flow. |
+ **lti_message_hint** | **string**| Tool-opaque login identifier | [optional]
+ **lti_deployment_id** | **string**| Deployment id that would be passed in the https://purl.imsglobal.org/spec/lti/claim/deployment_id claim in an OIDC Authorization Response | [optional]
+ **client_id** | **string**| Client id that should be used to authorize the subsequent LTI message request. | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getLti13ToolConfigurationSchema**
+> \Swagger\Client\Model\Lti13ToolConfigurationSchema getLti13ToolConfigurationSchema($engine_tenant_name, $destination_id)
+
+Get the information needed to configure a LTI 1.3 platform with the destination id `destinationId`
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Swagger\Client\Api\DispatchApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
+$destination_id = "destination_id_example"; // string | 
+
+try {
+    $result = $apiInstance->getLti13ToolConfigurationSchema($engine_tenant_name, $destination_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DispatchApi->getLti13ToolConfigurationSchema: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **engine_tenant_name** | **string**| tenant for this request |
+ **destination_id** | **string**|  |
+
+### Return type
+
+[**\Swagger\Client\Model\Lti13ToolConfigurationSchema**](../Model/Lti13ToolConfigurationSchema.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getToolJsonWebKeySet**
+> \Swagger\Client\Model\JsonWebKeySetSchema getToolJsonWebKeySet($external_config, $destination_id)
+
+Get JSON Web Key Set
+
+Returns a JSON Web Key Set for given destination
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$apiInstance = new Swagger\Client\Api\DispatchApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$external_config = "external_config_example"; // string | External configuration object
+$destination_id = "destination_id_example"; // string | 
+
+try {
+    $result = $apiInstance->getToolJsonWebKeySet($external_config, $destination_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DispatchApi->getToolJsonWebKeySet: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **external_config** | **string**| External configuration object |
+ **destination_id** | **string**|  |
+
+### Return type
+
+[**\Swagger\Client\Model\JsonWebKeySetSchema**](../Model/JsonWebKeySetSchema.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **postDispatchLtiReporters**
+> \Swagger\Client\Model\LtiReporterIdSchema postDispatchLtiReporters($engine_tenant_name, $lti_reporter_schema)
+
+Set up a temporary LTI reporter; for use by products that use their own LTI entry points
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Swagger\Client\Api\DispatchApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
+$lti_reporter_schema = new \Swagger\Client\Model\LtiReporterSchema(); // \Swagger\Client\Model\LtiReporterSchema | 
+
+try {
+    $result = $apiInstance->postDispatchLtiReporters($engine_tenant_name, $lti_reporter_schema);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DispatchApi->postDispatchLtiReporters: ', $e->getMessage(), PHP_EOL;
@@ -1055,12 +1365,185 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\LtiReporterSchema**](../Model/LtiReporterSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
+ **lti_reporter_schema** | [**\Swagger\Client\Model\LtiReporterSchema**](../Model/LtiReporterSchema.md)|  |
 
 ### Return type
 
 [**\Swagger\Client\Model\LtiReporterIdSchema**](../Model/LtiReporterIdSchema.md)
+
+### Authorization
+
+[basic](../../README.md#basic), [oauth](../../README.md#oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **postLti13AuthorizationResponse**
+> postLti13AuthorizationResponse($external_config, $destination_id, $id_token, $state)
+
+Process an LTI 1.3 OIDC Authorization Response for the destination with id `destinationId`
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$apiInstance = new Swagger\Client\Api\DispatchApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$external_config = "external_config_example"; // string | External configuration object
+$destination_id = "destination_id_example"; // string | 
+$id_token = "id_token_example"; // string | JWT with claims specified by LTI 1.3 spec
+$state = "state_example"; // string | State information passed to platform from OIDC Authorization Request
+
+try {
+    $apiInstance->postLti13AuthorizationResponse($external_config, $destination_id, $id_token, $state);
+} catch (Exception $e) {
+    echo 'Exception when calling DispatchApi->postLti13AuthorizationResponse: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **external_config** | **string**| External configuration object |
+ **destination_id** | **string**|  |
+ **id_token** | **string**| JWT with claims specified by LTI 1.3 spec |
+ **state** | **string**| State information passed to platform from OIDC Authorization Request |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **postLti13OidcLoginInitiation**
+> postLti13OidcLoginInitiation($external_config, $destination_id, $login_hint, $iss, $target_link_uri, $lti_message_hint, $lti_deployment_id, $client_id)
+
+Initiate an OIDC Login flow for the destination with id `destinationId`
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$apiInstance = new Swagger\Client\Api\DispatchApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$external_config = "external_config_example"; // string | External configuration object
+$destination_id = "destination_id_example"; // string | 
+$login_hint = "login_hint_example"; // string | Tool-opaque login identifier
+$iss = "iss_example"; // string | Issuer identifying the learning platform
+$target_link_uri = "target_link_uri_example"; // string | Endpoint to be at the end of the OIDC authentication flow.
+$lti_message_hint = "lti_message_hint_example"; // string | Tool-opaque login identifier
+$lti_deployment_id = "lti_deployment_id_example"; // string | deployment id that would be passed in the https://purl.imsglobal.org/spec/lti/claim/deployment_id claim in an OIDC Authorization Response
+$client_id = "client_id_example"; // string | Client id that should be used to authorize the subsequent LTI message request.
+
+try {
+    $apiInstance->postLti13OidcLoginInitiation($external_config, $destination_id, $login_hint, $iss, $target_link_uri, $lti_message_hint, $lti_deployment_id, $client_id);
+} catch (Exception $e) {
+    echo 'Exception when calling DispatchApi->postLti13OidcLoginInitiation: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **external_config** | **string**| External configuration object |
+ **destination_id** | **string**|  |
+ **login_hint** | **string**| Tool-opaque login identifier |
+ **iss** | **string**| Issuer identifying the learning platform |
+ **target_link_uri** | **string**| Endpoint to be at the end of the OIDC authentication flow. |
+ **lti_message_hint** | **string**| Tool-opaque login identifier | [optional]
+ **lti_deployment_id** | **string**| deployment id that would be passed in the https://purl.imsglobal.org/spec/lti/claim/deployment_id claim in an OIDC Authorization Response | [optional]
+ **client_id** | **string**| Client id that should be used to authorize the subsequent LTI message request. | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **postRotateToolKeys**
+> postRotateToolKeys($engine_tenant_name, $destination_id, $rotate_keys)
+
+Rotate RSA Keys
+
+Rotates the destination's RSA Key Pair
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: basic
+$config = Swagger\Client\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Swagger\Client\Api\DispatchApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
+$destination_id = "destination_id_example"; // string | 
+$rotate_keys = new \Swagger\Client\Model\RotateKeysSchema(); // \Swagger\Client\Model\RotateKeysSchema | 
+
+try {
+    $apiInstance->postRotateToolKeys($engine_tenant_name, $destination_id, $rotate_keys);
+} catch (Exception $e) {
+    echo 'Exception when calling DispatchApi->postRotateToolKeys: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **engine_tenant_name** | **string**| tenant for this request |
+ **destination_id** | **string**|  |
+ **rotate_keys** | [**\Swagger\Client\Model\RotateKeysSchema**](../Model/RotateKeysSchema.md)|  |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -1082,6 +1565,7 @@ Reset the registration count for related dispatches.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -1124,7 +1608,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -1138,6 +1622,7 @@ Reset the registration count for this dispatch.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -1180,20 +1665,21 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **setDestination**
-> setDestination($body, $engine_tenant_name, $destination_id)
+> setDestination($engine_tenant_name, $destination_id, $destination)
 
-Create or update the destination with id `destinationId`
+Update the destination with id `destinationId`
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -1208,12 +1694,12 @@ $apiInstance = new Swagger\Client\Api\DispatchApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\DestinationSchema(); // \Swagger\Client\Model\DestinationSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $destination_id = "destination_id_example"; // string | 
+$destination = new \Swagger\Client\Model\DestinationSchema(); // \Swagger\Client\Model\DestinationSchema | 
 
 try {
-    $apiInstance->setDestination($body, $engine_tenant_name, $destination_id);
+    $apiInstance->setDestination($engine_tenant_name, $destination_id, $destination);
 } catch (Exception $e) {
     echo 'Exception when calling DispatchApi->setDestination: ', $e->getMessage(), PHP_EOL;
 }
@@ -1224,9 +1710,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\DestinationSchema**](../Model/DestinationSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
  **destination_id** | **string**|  |
+ **destination** | [**\Swagger\Client\Model\DestinationSchema**](../Model/DestinationSchema.md)|  |
 
 ### Return type
 
@@ -1244,7 +1730,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **setDestinationDispatchEnabled**
-> setDestinationDispatchEnabled($body, $engine_tenant_name, $destination_id)
+> setDestinationDispatchEnabled($engine_tenant_name, $destination_id, $enabled)
 
 Enable or disable all related dispatches
 
@@ -1252,6 +1738,7 @@ Enable or disable all related dispatches
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -1266,12 +1753,12 @@ $apiInstance = new Swagger\Client\Api\DispatchApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\EnabledSchema(); // \Swagger\Client\Model\EnabledSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $destination_id = "destination_id_example"; // string | 
+$enabled = new \Swagger\Client\Model\EnabledSchema(); // \Swagger\Client\Model\EnabledSchema | 
 
 try {
-    $apiInstance->setDestinationDispatchEnabled($body, $engine_tenant_name, $destination_id);
+    $apiInstance->setDestinationDispatchEnabled($engine_tenant_name, $destination_id, $enabled);
 } catch (Exception $e) {
     echo 'Exception when calling DispatchApi->setDestinationDispatchEnabled: ', $e->getMessage(), PHP_EOL;
 }
@@ -1282,9 +1769,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\EnabledSchema**](../Model/EnabledSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
  **destination_id** | **string**|  |
+ **enabled** | [**\Swagger\Client\Model\EnabledSchema**](../Model/EnabledSchema.md)|  |
 
 ### Return type
 
@@ -1302,7 +1789,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **setDispatchEnabled**
-> setDispatchEnabled($body, $engine_tenant_name, $dispatch_id)
+> setDispatchEnabled($engine_tenant_name, $dispatch_id, $enabled)
 
 Enable or disable the dispatch
 
@@ -1310,6 +1797,7 @@ Enable or disable the dispatch
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -1324,12 +1812,12 @@ $apiInstance = new Swagger\Client\Api\DispatchApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\EnabledSchema(); // \Swagger\Client\Model\EnabledSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $dispatch_id = "dispatch_id_example"; // string | 
+$enabled = new \Swagger\Client\Model\EnabledSchema(); // \Swagger\Client\Model\EnabledSchema | 
 
 try {
-    $apiInstance->setDispatchEnabled($body, $engine_tenant_name, $dispatch_id);
+    $apiInstance->setDispatchEnabled($engine_tenant_name, $dispatch_id, $enabled);
 } catch (Exception $e) {
     echo 'Exception when calling DispatchApi->setDispatchEnabled: ', $e->getMessage(), PHP_EOL;
 }
@@ -1340,9 +1828,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\EnabledSchema**](../Model/EnabledSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
  **dispatch_id** | **string**|  |
+ **enabled** | [**\Swagger\Client\Model\EnabledSchema**](../Model/EnabledSchema.md)|  |
 
 ### Return type
 
@@ -1360,7 +1848,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateDispatch**
-> updateDispatch($body, $engine_tenant_name, $dispatch_id)
+> updateDispatch($engine_tenant_name, $dispatch_id, $dispatch_properties)
 
 Update the dispatch with id `dispatchId`
 
@@ -1368,6 +1856,7 @@ Update the dispatch with id `dispatchId`
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -1382,12 +1871,12 @@ $apiInstance = new Swagger\Client\Api\DispatchApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\UpdateDispatchSchema(); // \Swagger\Client\Model\UpdateDispatchSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
 $dispatch_id = "dispatch_id_example"; // string | 
+$dispatch_properties = new \Swagger\Client\Model\UpdateDispatchSchema(); // \Swagger\Client\Model\UpdateDispatchSchema | 
 
 try {
-    $apiInstance->updateDispatch($body, $engine_tenant_name, $dispatch_id);
+    $apiInstance->updateDispatch($engine_tenant_name, $dispatch_id, $dispatch_properties);
 } catch (Exception $e) {
     echo 'Exception when calling DispatchApi->updateDispatch: ', $e->getMessage(), PHP_EOL;
 }
@@ -1398,9 +1887,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\UpdateDispatchSchema**](../Model/UpdateDispatchSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
  **dispatch_id** | **string**|  |
+ **dispatch_properties** | [**\Swagger\Client\Model\UpdateDispatchSchema**](../Model/UpdateDispatchSchema.md)|  |
 
 ### Return type
 

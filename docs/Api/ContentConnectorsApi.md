@@ -1,19 +1,20 @@
 # Swagger\Client\ContentConnectorsApi
 
-All URIs are relative to */api/v2/*
+All URIs are relative to *http://localhost/api/v2/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createConnector**](ContentConnectorsApi.md#createconnector) | **POST** /contentConnectors | Create a connector
-[**getConnectorContentList**](ContentConnectorsApi.md#getconnectorcontentlist) | **GET** /contentConnectors/availableContent | Get list of available content
-[**getConnectorsList**](ContentConnectorsApi.md#getconnectorslist) | **GET** /contentConnectors | Get content connectors
-[**getRefreshJobStatus**](ContentConnectorsApi.md#getrefreshjobstatus) | **GET** /contentConnectors/availableContent/refreshJobs/{refreshJobId} | Check the status of a refresh job.
-[**refreshConnectorContentListJob**](ContentConnectorsApi.md#refreshconnectorcontentlistjob) | **POST** /contentConnectors/availableContent/refreshJobs | Start a job to refresh the list of available content
-[**searchRemoteConnectorContent**](ContentConnectorsApi.md#searchremoteconnectorcontent) | **POST** /contentConnectors/remoteSearch | search remote content
-[**updateConnector**](ContentConnectorsApi.md#updateconnector) | **PUT** /contentConnectors/{connectorId} | Update a connector
+[**createConnector**](ContentConnectorsApi.md#createConnector) | **POST** /contentConnectors | Create a connector
+[**getConnectorContentList**](ContentConnectorsApi.md#getConnectorContentList) | **GET** /contentConnectors/availableContent | Get list of available content
+[**getConnectorsList**](ContentConnectorsApi.md#getConnectorsList) | **GET** /contentConnectors | Get content connectors
+[**getRefreshJobStatus**](ContentConnectorsApi.md#getRefreshJobStatus) | **GET** /contentConnectors/availableContent/refreshJobs/{refreshJobId} | Check the status of a refresh job.
+[**refreshConnectorContentListJob**](ContentConnectorsApi.md#refreshConnectorContentListJob) | **POST** /contentConnectors/availableContent/refreshJobs | Start a job to refresh the list of available content
+[**searchRemoteConnectorContent**](ContentConnectorsApi.md#searchRemoteConnectorContent) | **POST** /contentConnectors/remoteSearch | search remote content
+[**updateConnector**](ContentConnectorsApi.md#updateConnector) | **PUT** /contentConnectors/{connectorId} | Update a connector
+
 
 # **createConnector**
-> \Swagger\Client\Model\StringResultSchema createConnector($body, $engine_tenant_name)
+> \Swagger\Client\Model\StringResultSchema createConnector($connector, $engine_tenant_name)
 
 Create a connector
 
@@ -23,6 +24,7 @@ Creates a connector for the specified tenant, or a system-wide connector if tena
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -37,11 +39,11 @@ $apiInstance = new Swagger\Client\Api\ContentConnectorsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\CreateConnectorSchema(); // \Swagger\Client\Model\CreateConnectorSchema | 
+$connector = new \Swagger\Client\Model\CreateConnectorSchema(); // \Swagger\Client\Model\CreateConnectorSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | optional tenant for this request
 
 try {
-    $result = $apiInstance->createConnector($body, $engine_tenant_name);
+    $result = $apiInstance->createConnector($connector, $engine_tenant_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContentConnectorsApi->createConnector: ', $e->getMessage(), PHP_EOL;
@@ -53,7 +55,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\CreateConnectorSchema**](../Model/CreateConnectorSchema.md)|  |
+ **connector** | [**\Swagger\Client\Model\CreateConnectorSchema**](../Model/CreateConnectorSchema.md)|  |
  **engine_tenant_name** | **string**| optional tenant for this request | [optional]
 
 ### Return type
@@ -82,6 +84,7 @@ Gets the list of content available, either for all connectors, or for only a spe
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -100,9 +103,9 @@ $engine_tenant_name = "engine_tenant_name_example"; // string | optional tenant 
 $connector_id = "connector_id_example"; // string | the connector id
 $since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used.
 $more = "more_example"; // string | Value for this parameter will be provided in the 'more' property of lists, where needed. An opaque value, construction and parsing may change without notice.
-$not_imported = true; // bool | 
+$not_imported = false; // bool | 
 $search = "search_example"; // string | 
-$include_all_metadata = true; // bool | 
+$include_all_metadata = false; // bool | 
 
 try {
     $result = $apiInstance->getConnectorContentList($engine_tenant_name, $connector_id, $since, $more, $not_imported, $search, $include_all_metadata);
@@ -120,10 +123,10 @@ Name | Type | Description  | Notes
  **engine_tenant_name** | **string**| optional tenant for this request | [optional]
  **connector_id** | **string**| the connector id | [optional]
  **since** | **\DateTime**| Only items updated since the specified ISO 8601 TimeStamp (inclusive) are included. If a time zone is not specified, UTC time zone will be used. | [optional]
- **more** | **string**| Value for this parameter will be provided in the &#x27;more&#x27; property of lists, where needed. An opaque value, construction and parsing may change without notice. | [optional]
- **not_imported** | **bool**|  | [optional]
+ **more** | **string**| Value for this parameter will be provided in the &#39;more&#39; property of lists, where needed. An opaque value, construction and parsing may change without notice. | [optional]
+ **not_imported** | **bool**|  | [optional] [default to false]
  **search** | **string**|  | [optional]
- **include_all_metadata** | **bool**|  | [optional]
+ **include_all_metadata** | **bool**|  | [optional] [default to false]
 
 ### Return type
 
@@ -135,13 +138,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getConnectorsList**
-> \Swagger\Client\Model\ConnectorListSchema getConnectorsList($engine_tenant_name)
+> \Swagger\Client\Model\ConnectorListSchema getConnectorsList($engine_tenant_name, $include_additional_instance_information)
 
 Get content connectors
 
@@ -151,6 +154,7 @@ Gets list of connectors, for the specified tenant, or connectors that apply to a
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -166,9 +170,10 @@ $apiInstance = new Swagger\Client\Api\ContentConnectorsApi(
     $config
 );
 $engine_tenant_name = "engine_tenant_name_example"; // string | optional tenant for this request
+$include_additional_instance_information = true; // bool | 
 
 try {
-    $result = $apiInstance->getConnectorsList($engine_tenant_name);
+    $result = $apiInstance->getConnectorsList($engine_tenant_name, $include_additional_instance_information);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContentConnectorsApi->getConnectorsList: ', $e->getMessage(), PHP_EOL;
@@ -181,6 +186,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **engine_tenant_name** | **string**| optional tenant for this request | [optional]
+ **include_additional_instance_information** | **bool**|  | [optional]
 
 ### Return type
 
@@ -192,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -206,6 +212,7 @@ Check the status of a refresh job.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -249,7 +256,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -265,6 +272,7 @@ Starts a job to refresh the list of content available, either for all connectors
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -308,13 +316,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchRemoteConnectorContent**
-> \Swagger\Client\Model\ConnectorContentListSchema searchRemoteConnectorContent($body, $engine_tenant_name)
+> \Swagger\Client\Model\ConnectorContentListSchema searchRemoteConnectorContent($search_info, $engine_tenant_name)
 
 search remote content
 
@@ -324,6 +332,7 @@ Searches the remote content available, either for all connectors, or for only a 
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -338,11 +347,11 @@ $apiInstance = new Swagger\Client\Api\ContentConnectorsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\ConnectorContentSearchSchema(); // \Swagger\Client\Model\ConnectorContentSearchSchema | 
+$search_info = new \Swagger\Client\Model\ConnectorContentSearchSchema(); // \Swagger\Client\Model\ConnectorContentSearchSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | optional tenant for this request
 
 try {
-    $result = $apiInstance->searchRemoteConnectorContent($body, $engine_tenant_name);
+    $result = $apiInstance->searchRemoteConnectorContent($search_info, $engine_tenant_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ContentConnectorsApi->searchRemoteConnectorContent: ', $e->getMessage(), PHP_EOL;
@@ -354,7 +363,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\ConnectorContentSearchSchema**](../Model/ConnectorContentSearchSchema.md)|  |
+ **search_info** | [**\Swagger\Client\Model\ConnectorContentSearchSchema**](../Model/ConnectorContentSearchSchema.md)|  |
  **engine_tenant_name** | **string**| optional tenant for this request | [optional]
 
 ### Return type
@@ -373,7 +382,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateConnector**
-> updateConnector($body, $connector_id, $engine_tenant_name)
+> updateConnector($connector_id, $connector, $engine_tenant_name)
 
 Update a connector
 
@@ -383,6 +392,7 @@ Update the specified connector.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -397,12 +407,12 @@ $apiInstance = new Swagger\Client\Api\ContentConnectorsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\UpdateConnectorSchema(); // \Swagger\Client\Model\UpdateConnectorSchema | 
 $connector_id = "connector_id_example"; // string | the connector id
+$connector = new \Swagger\Client\Model\UpdateConnectorSchema(); // \Swagger\Client\Model\UpdateConnectorSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | optional tenant for this request
 
 try {
-    $apiInstance->updateConnector($body, $connector_id, $engine_tenant_name);
+    $apiInstance->updateConnector($connector_id, $connector, $engine_tenant_name);
 } catch (Exception $e) {
     echo 'Exception when calling ContentConnectorsApi->updateConnector: ', $e->getMessage(), PHP_EOL;
 }
@@ -413,8 +423,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\UpdateConnectorSchema**](../Model/UpdateConnectorSchema.md)|  |
  **connector_id** | **string**| the connector id |
+ **connector** | [**\Swagger\Client\Model\UpdateConnectorSchema**](../Model/UpdateConnectorSchema.md)|  |
  **engine_tenant_name** | **string**| optional tenant for this request | [optional]
 
 ### Return type

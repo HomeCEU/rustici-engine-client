@@ -8,6 +8,9 @@ Name | Type | Description | Notes
 **media_file_reference_request** | [**\Swagger\Client\Model\ImportMediaFileReferenceRequestSchema**](ImportMediaFileReferenceRequestSchema.md) |  | [optional] 
 **connector_reference_request** | [**\Swagger\Client\Model\ImportConnectorRequestSchema**](ImportConnectorRequestSchema.md) |  | [optional] 
 **ad_hoc_reference_request** | [**\Swagger\Client\Model\ImportAdHocReferenceRequestSchema**](ImportAdHocReferenceRequestSchema.md) |  | [optional] 
+**lti11_link_reference_request** | [**\Swagger\Client\Model\ImportLti11LinkReferenceRequestSchema**](ImportLti11LinkReferenceRequestSchema.md) |  | [optional] 
+**lti13_link_reference_request** | [**\Swagger\Client\Model\ImportLti13LinkReferenceRequestSchema**](ImportLti13LinkReferenceRequestSchema.md) |  | [optional] 
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

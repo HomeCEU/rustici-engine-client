@@ -7,5 +7,6 @@ Name | Type | Description | Notes
 **location** | **string** |  | [optional] 
 **date_time** | **string** |  | [optional] 
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

@@ -1,31 +1,32 @@
 # Swagger\Client\AppManagementApi
 
-All URIs are relative to */api/v2/*
+All URIs are relative to *http://localhost/api/v2/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createCredential**](AppManagementApi.md#createcredential) | **POST** /appManagement/credentials | Create credential
-[**createOrUpdateTenant**](AppManagementApi.md#createorupdatetenant) | **PUT** /appManagement/tenants/{tenantName} | Create or update tenant
-[**createToken**](AppManagementApi.md#createtoken) | **POST** /appManagement/token | Create token
-[**deleteApplicationConfigurationSetting**](AppManagementApi.md#deleteapplicationconfigurationsetting) | **DELETE** /appManagement/configuration/{settingId} | Clears the &#x60;settingId&#x60; value for this level
-[**deleteCredential**](AppManagementApi.md#deletecredential) | **DELETE** /appManagement/credentials/{credentialId} | Removes &#x60;credentialId&#x60; credentials
-[**deleteTenant**](AppManagementApi.md#deletetenant) | **DELETE** /appManagement/tenants/{tenantName} | Delete a tenant. Warning: If tenant data is not deleted first, this will leave orphaned rows that can only be deleted manually. Does not remove any data, but does remove mapping between name and key used to store data. Consider deactivating instead.
-[**deleteTenantData**](AppManagementApi.md#deletetenantdata) | **DELETE** /appManagement/tenants/{tenantName}/data | Delete all of a tenant&#x27;s data.
-[**getApplicationConfiguration**](AppManagementApi.md#getapplicationconfiguration) | **GET** /appManagement/configuration | Returns all configuration settings for this level
-[**getAuthenticatedCredential**](AppManagementApi.md#getauthenticatedcredential) | **GET** /appManagement/authenticatedCredential | Get information about the credential used to authenticate this request.
-[**getCredential**](AppManagementApi.md#getcredential) | **GET** /appManagement/credentials/{credentialId} | Get information on &#x60;credentialId&#x60; credential
-[**getCredentials**](AppManagementApi.md#getcredentials) | **GET** /appManagement/credentials | List of credentials
-[**getPIIDeletionJob**](AppManagementApi.md#getpiideletionjob) | **GET** /appManagement/PII/deletionJob/{jobId} | Check the status of a PII deletion job with the provided job id.
-[**getTenantList**](AppManagementApi.md#gettenantlist) | **GET** /appManagement/tenants | Get list of all tenants
-[**inspectToken**](AppManagementApi.md#inspecttoken) | **GET** /appManagement/token | Inspect token
-[**postPIIDeletionJob**](AppManagementApi.md#postpiideletionjob) | **POST** /appManagement/PII/deletionJob | Initiate a job to delete a user&#x27;s Personal Identifying Information from the system.
-[**postUpdateEncryptedSetting**](AppManagementApi.md#postupdateencryptedsetting) | **POST** /appManagement/configuration/updateEncryptedSettings | Re-write settings, and statement pipe passwords using the current encryption settings. For password rotation.
-[**resetCredentialSecret**](AppManagementApi.md#resetcredentialsecret) | **POST** /appManagement/credentials/{credentialId}/resetSecret | Reset credential secret
-[**setApplicationConfiguration**](AppManagementApi.md#setapplicationconfiguration) | **POST** /appManagement/configuration | Set configuration settings for this level.
-[**updateCredential**](AppManagementApi.md#updatecredential) | **PUT** /appManagement/credentials/{credentialId} | Update &#x60;credentialId&#x60; credentials
+[**createCredential**](AppManagementApi.md#createCredential) | **POST** /appManagement/credentials | Create credential
+[**createOrUpdateTenant**](AppManagementApi.md#createOrUpdateTenant) | **PUT** /appManagement/tenants/{tenantName} | Create or update tenant
+[**createToken**](AppManagementApi.md#createToken) | **POST** /appManagement/token | Create token
+[**deleteApplicationConfigurationSetting**](AppManagementApi.md#deleteApplicationConfigurationSetting) | **DELETE** /appManagement/configuration/{settingId} | Clears the &#x60;settingId&#x60; value for this level
+[**deleteCredential**](AppManagementApi.md#deleteCredential) | **DELETE** /appManagement/credentials/{credentialId} | Removes &#x60;credentialId&#x60; credentials
+[**deleteTenant**](AppManagementApi.md#deleteTenant) | **DELETE** /appManagement/tenants/{tenantName} | Delete a tenant. Warning: If tenant data is not deleted first, this will leave orphaned rows that can only be deleted manually. Does not remove any data, but does remove mapping between name and key used to store data. Consider deactivating instead.
+[**deleteTenantData**](AppManagementApi.md#deleteTenantData) | **DELETE** /appManagement/tenants/{tenantName}/data | Delete all of a tenant&#39;s data.
+[**getApplicationConfiguration**](AppManagementApi.md#getApplicationConfiguration) | **GET** /appManagement/configuration | Returns all configuration settings for this level
+[**getAuthenticatedCredential**](AppManagementApi.md#getAuthenticatedCredential) | **GET** /appManagement/authenticatedCredential | Get information about the credential used to authenticate this request.
+[**getCredential**](AppManagementApi.md#getCredential) | **GET** /appManagement/credentials/{credentialId} | Get information on &#x60;credentialId&#x60; credential
+[**getCredentials**](AppManagementApi.md#getCredentials) | **GET** /appManagement/credentials | List of credentials
+[**getPIIDeletionJob**](AppManagementApi.md#getPIIDeletionJob) | **GET** /appManagement/PII/deletionJob/{jobId} | Check the status of a PII deletion job with the provided job id.
+[**getTenantList**](AppManagementApi.md#getTenantList) | **GET** /appManagement/tenants | Get list of all tenants
+[**inspectToken**](AppManagementApi.md#inspectToken) | **GET** /appManagement/token | Inspect token
+[**postPIIDeletionJob**](AppManagementApi.md#postPIIDeletionJob) | **POST** /appManagement/PII/deletionJob | Initiate a job to delete a user&#39;s Personal Identifying Information from the system.
+[**postUpdateEncryptedSetting**](AppManagementApi.md#postUpdateEncryptedSetting) | **POST** /appManagement/configuration/updateEncryptedSettings | Re-write settings, and statement pipe passwords using the current encryption settings. For password rotation.
+[**resetCredentialSecret**](AppManagementApi.md#resetCredentialSecret) | **POST** /appManagement/credentials/{credentialId}/resetSecret | Reset credential secret
+[**setApplicationConfiguration**](AppManagementApi.md#setApplicationConfiguration) | **POST** /appManagement/configuration | Set configuration settings for this level.
+[**updateCredential**](AppManagementApi.md#updateCredential) | **PUT** /appManagement/credentials/{credentialId} | Update &#x60;credentialId&#x60; credentials
+
 
 # **createCredential**
-> \Swagger\Client\Model\CredentialCreatedSchema createCredential($body, $engine_tenant_name)
+> \Swagger\Client\Model\CredentialCreatedSchema createCredential($credential_request, $engine_tenant_name)
 
 Create credential
 
@@ -33,6 +34,7 @@ Create credential
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -47,11 +49,11 @@ $apiInstance = new Swagger\Client\Api\AppManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\CredentialRequestSchema(); // \Swagger\Client\Model\CredentialRequestSchema | 
+$credential_request = new \Swagger\Client\Model\CredentialRequestSchema(); // \Swagger\Client\Model\CredentialRequestSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains 'tenantName' which should be used for any permissions that need to be scoped to a particular tenant.
 
 try {
-    $result = $apiInstance->createCredential($body, $engine_tenant_name);
+    $result = $apiInstance->createCredential($credential_request, $engine_tenant_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AppManagementApi->createCredential: ', $e->getMessage(), PHP_EOL;
@@ -63,8 +65,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\CredentialRequestSchema**](../Model/CredentialRequestSchema.md)|  |
- **engine_tenant_name** | **string**| If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains &#x27;tenantName&#x27; which should be used for any permissions that need to be scoped to a particular tenant. | [optional]
+ **credential_request** | [**\Swagger\Client\Model\CredentialRequestSchema**](../Model/CredentialRequestSchema.md)|  |
+ **engine_tenant_name** | **string**| If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains &#39;tenantName&#39; which should be used for any permissions that need to be scoped to a particular tenant. | [optional]
 
 ### Return type
 
@@ -82,7 +84,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createOrUpdateTenant**
-> createOrUpdateTenant($body, $tenant_name)
+> createOrUpdateTenant($tenant_name, $tenant_properties)
 
 Create or update tenant
 
@@ -90,6 +92,7 @@ Create or update tenant
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -104,11 +107,11 @@ $apiInstance = new Swagger\Client\Api\AppManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \stdClass; // object | 
 $tenant_name = "tenant_name_example"; // string | 
+$tenant_properties = new \Swagger\Client\Model\TenantProperties(); // \Swagger\Client\Model\TenantProperties | 
 
 try {
-    $apiInstance->createOrUpdateTenant($body, $tenant_name);
+    $apiInstance->createOrUpdateTenant($tenant_name, $tenant_properties);
 } catch (Exception $e) {
     echo 'Exception when calling AppManagementApi->createOrUpdateTenant: ', $e->getMessage(), PHP_EOL;
 }
@@ -119,8 +122,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**object**](../Model/object.md)|  |
  **tenant_name** | **string**|  |
+ **tenant_properties** | [**\Swagger\Client\Model\TenantProperties**](../Model/TenantProperties.md)|  |
 
 ### Return type
 
@@ -138,7 +141,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createToken**
-> \Swagger\Client\Model\StringResultSchema createToken($body, $engine_tenant_name)
+> \Swagger\Client\Model\StringResultSchema createToken($token_request, $engine_tenant_name)
 
 Create token
 
@@ -148,6 +151,7 @@ Creates, signs and returns a token based on the provided permissions, if the cre
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -162,11 +166,11 @@ $apiInstance = new Swagger\Client\Api\AppManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\TokenRequestSchema(); // \Swagger\Client\Model\TokenRequestSchema | 
+$token_request = new \Swagger\Client\Model\TokenRequestSchema(); // \Swagger\Client\Model\TokenRequestSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains 'tenantName' which should be used for any permissions that need to be scoped to a particular tenant.
 
 try {
-    $result = $apiInstance->createToken($body, $engine_tenant_name);
+    $result = $apiInstance->createToken($token_request, $engine_tenant_name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AppManagementApi->createToken: ', $e->getMessage(), PHP_EOL;
@@ -178,8 +182,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\TokenRequestSchema**](../Model/TokenRequestSchema.md)|  |
- **engine_tenant_name** | **string**| If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains &#x27;tenantName&#x27; which should be used for any permissions that need to be scoped to a particular tenant. | [optional]
+ **token_request** | [**\Swagger\Client\Model\TokenRequestSchema**](../Model/TokenRequestSchema.md)|  |
+ **engine_tenant_name** | **string**| If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains &#39;tenantName&#39; which should be used for any permissions that need to be scoped to a particular tenant. | [optional]
 
 ### Return type
 
@@ -205,6 +209,7 @@ Clears the `settingId` value for this level
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -251,7 +256,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -265,6 +270,7 @@ Removes `credentialId` credentials
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -295,7 +301,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **credential_id** | **string**|  |
- **engine_tenant_name** | **string**| If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains &#x27;tenantName&#x27; which should be used for any permissions that need to be scoped to a particular tenant. | [optional]
+ **engine_tenant_name** | **string**| If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains &#39;tenantName&#39; which should be used for any permissions that need to be scoped to a particular tenant. | [optional]
 
 ### Return type
 
@@ -307,7 +313,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -321,6 +327,7 @@ Delete a tenant. Warning: If tenant data is not deleted first, this will leave o
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -361,7 +368,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -375,6 +382,7 @@ Delete all of a tenant's data.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -415,7 +423,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -429,6 +437,7 @@ Returns all configuration settings for this level
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -446,9 +455,9 @@ $apiInstance = new Swagger\Client\Api\AppManagementApi(
 $engine_tenant_name = "engine_tenant_name_example"; // string | optional tenant for this request
 $learning_standard = "learning_standard_example"; // string | Required if singleSco is specified. Scopes the request to the provided learning standard.
 $single_sco = true; // bool | Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes.
-$include_metadata = true; // bool | 
-$include_hidden_settings = true; // bool | Should settings that are declared to be hidden be included. Note: such settings generally do not need to be modified, and may be confusing.
-$include_secret_settings = true; // bool | Should settings that are stored encrypted (type 'secretString') be included. Note: if included, the decrypted value will be returned.
+$include_metadata = false; // bool | 
+$include_hidden_settings = false; // bool | Should settings that are declared to be hidden be included. Note: such settings generally do not need to be modified, and may be confusing.
+$include_secret_settings = false; // bool | Should settings that are stored encrypted (type 'secretString') be included. Note: if included, the decrypted value will be returned.
 $process_replacement_tokens = true; // bool | Whether to process replacement tokens (false returns the raw value of each setting, without tokens or environment variable replacements)
 
 try {
@@ -467,10 +476,10 @@ Name | Type | Description  | Notes
  **engine_tenant_name** | **string**| optional tenant for this request | [optional]
  **learning_standard** | **string**| Required if singleSco is specified. Scopes the request to the provided learning standard. | [optional]
  **single_sco** | **bool**| Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. | [optional]
- **include_metadata** | **bool**|  | [optional]
- **include_hidden_settings** | **bool**| Should settings that are declared to be hidden be included. Note: such settings generally do not need to be modified, and may be confusing. | [optional]
- **include_secret_settings** | **bool**| Should settings that are stored encrypted (type &#x27;secretString&#x27;) be included. Note: if included, the decrypted value will be returned. | [optional]
- **process_replacement_tokens** | **bool**| Whether to process replacement tokens (false returns the raw value of each setting, without tokens or environment variable replacements) | [optional]
+ **include_metadata** | **bool**|  | [optional] [default to false]
+ **include_hidden_settings** | **bool**| Should settings that are declared to be hidden be included. Note: such settings generally do not need to be modified, and may be confusing. | [optional] [default to false]
+ **include_secret_settings** | **bool**| Should settings that are stored encrypted (type &#39;secretString&#39;) be included. Note: if included, the decrypted value will be returned. | [optional] [default to false]
+ **process_replacement_tokens** | **bool**| Whether to process replacement tokens (false returns the raw value of each setting, without tokens or environment variable replacements) | [optional] [default to true]
 
 ### Return type
 
@@ -482,7 +491,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -496,6 +505,7 @@ Get information about the credential used to authenticate this request.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -525,7 +535,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **engine_tenant_name** | **string**| If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains &#x27;tenantName&#x27; which should be used for any permissions that need to be scoped to a particular tenant. | [optional]
+ **engine_tenant_name** | **string**| If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains &#39;tenantName&#39; which should be used for any permissions that need to be scoped to a particular tenant. | [optional]
 
 ### Return type
 
@@ -537,7 +547,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -551,6 +561,7 @@ Get information on `credentialId` credential
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -582,7 +593,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **credential_id** | **string**|  |
- **engine_tenant_name** | **string**| If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains &#x27;tenantName&#x27; which should be used for any permissions that need to be scoped to a particular tenant. | [optional]
+ **engine_tenant_name** | **string**| If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains &#39;tenantName&#39; which should be used for any permissions that need to be scoped to a particular tenant. | [optional]
 
 ### Return type
 
@@ -594,7 +605,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -608,6 +619,7 @@ List of credentials
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -637,7 +649,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **engine_tenant_name** | **string**| If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains &#x27;tenantName&#x27; which should be used for any permissions that need to be scoped to a particular tenant. | [optional]
+ **engine_tenant_name** | **string**| If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains &#39;tenantName&#39; which should be used for any permissions that need to be scoped to a particular tenant. | [optional]
 
 ### Return type
 
@@ -649,7 +661,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -663,6 +675,7 @@ Check the status of a PII deletion job with the provided job id.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -706,7 +719,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -720,6 +733,7 @@ Get list of all tenants
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -734,7 +748,7 @@ $apiInstance = new Swagger\Client\Api\AppManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$include_deactivated = true; // bool | 
+$include_deactivated = false; // bool | 
 
 try {
     $result = $apiInstance->getTenantList($include_deactivated);
@@ -749,7 +763,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **include_deactivated** | **bool**|  | [optional]
+ **include_deactivated** | **bool**|  | [optional] [default to false]
 
 ### Return type
 
@@ -761,7 +775,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -777,6 +791,7 @@ Verifies the signature of the provided token, and if valid returns information a
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -808,7 +823,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **token** | **string**|  |
- **engine_tenant_name** | **string**| If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains &#x27;tenantName&#x27; which should be used for any permissions that need to be scoped to a particular tenant. | [optional]
+ **engine_tenant_name** | **string**| If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains &#39;tenantName&#39; which should be used for any permissions that need to be scoped to a particular tenant. | [optional]
 
 ### Return type
 
@@ -820,13 +835,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postPIIDeletionJob**
-> \Swagger\Client\Model\PIIDeletionRequestResultSchema postPIIDeletionJob($body, $engine_tenant_name)
+> \Swagger\Client\Model\PIIDeletionRequestResultSchema postPIIDeletionJob($engine_tenant_name, $entities)
 
 Initiate a job to delete a user's Personal Identifying Information from the system.
 
@@ -834,6 +849,7 @@ Initiate a job to delete a user's Personal Identifying Information from the syst
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -848,11 +864,11 @@ $apiInstance = new Swagger\Client\Api\AppManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\PIIDeletionRequestSchema(); // \Swagger\Client\Model\PIIDeletionRequestSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | tenant for this request
+$entities = new \Swagger\Client\Model\PIIDeletionRequestSchema(); // \Swagger\Client\Model\PIIDeletionRequestSchema | 
 
 try {
-    $result = $apiInstance->postPIIDeletionJob($body, $engine_tenant_name);
+    $result = $apiInstance->postPIIDeletionJob($engine_tenant_name, $entities);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AppManagementApi->postPIIDeletionJob: ', $e->getMessage(), PHP_EOL;
@@ -864,8 +880,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\PIIDeletionRequestSchema**](../Model/PIIDeletionRequestSchema.md)|  |
  **engine_tenant_name** | **string**| tenant for this request |
+ **entities** | [**\Swagger\Client\Model\PIIDeletionRequestSchema**](../Model/PIIDeletionRequestSchema.md)|  |
 
 ### Return type
 
@@ -891,6 +907,7 @@ Re-write settings, and statement pipe passwords using the current encryption set
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -931,7 +948,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -945,6 +962,7 @@ Reset credential secret
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -976,7 +994,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **credential_id** | **string**|  |
- **engine_tenant_name** | **string**| If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains &#x27;tenantName&#x27; which should be used for any permissions that need to be scoped to a particular tenant. | [optional]
+ **engine_tenant_name** | **string**| If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains &#39;tenantName&#39; which should be used for any permissions that need to be scoped to a particular tenant. | [optional]
 
 ### Return type
 
@@ -988,13 +1006,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **setApplicationConfiguration**
-> setApplicationConfiguration($body, $engine_tenant_name, $learning_standard, $single_sco)
+> setApplicationConfiguration($configuration_settings, $engine_tenant_name, $learning_standard, $single_sco)
 
 Set configuration settings for this level.
 
@@ -1002,6 +1020,7 @@ Set configuration settings for this level.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -1016,13 +1035,13 @@ $apiInstance = new Swagger\Client\Api\AppManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\SettingsPostSchema(); // \Swagger\Client\Model\SettingsPostSchema | 
+$configuration_settings = new \Swagger\Client\Model\SettingsPostSchema(); // \Swagger\Client\Model\SettingsPostSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | optional tenant for this request
 $learning_standard = "learning_standard_example"; // string | Required if singleSco is specified. Scopes the request to the provided learning standard.
 $single_sco = true; // bool | Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes.
 
 try {
-    $apiInstance->setApplicationConfiguration($body, $engine_tenant_name, $learning_standard, $single_sco);
+    $apiInstance->setApplicationConfiguration($configuration_settings, $engine_tenant_name, $learning_standard, $single_sco);
 } catch (Exception $e) {
     echo 'Exception when calling AppManagementApi->setApplicationConfiguration: ', $e->getMessage(), PHP_EOL;
 }
@@ -1033,7 +1052,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\SettingsPostSchema**](../Model/SettingsPostSchema.md)|  |
+ **configuration_settings** | [**\Swagger\Client\Model\SettingsPostSchema**](../Model/SettingsPostSchema.md)|  |
  **engine_tenant_name** | **string**| optional tenant for this request | [optional]
  **learning_standard** | **string**| Required if singleSco is specified. Scopes the request to the provided learning standard. | [optional]
  **single_sco** | **bool**| Required if learningStandard is specified. Scopes settings to whether a package has only one SCO or assignable unit within it or not. To apply a configuration setting to a learning standard for single and multi-SCO content, it must be set for both scopes. | [optional]
@@ -1054,7 +1073,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateCredential**
-> updateCredential($body, $credential_id, $engine_tenant_name)
+> updateCredential($credential_id, $credential_update, $engine_tenant_name)
 
 Update `credentialId` credentials
 
@@ -1062,6 +1081,7 @@ Update `credentialId` credentials
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 // Configure HTTP basic authorization: basic
 $config = Swagger\Client\Configuration::getDefaultConfiguration()
               ->setUsername('YOUR_USERNAME')
@@ -1076,12 +1096,12 @@ $apiInstance = new Swagger\Client\Api\AppManagementApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\CredentialRequestSchema(); // \Swagger\Client\Model\CredentialRequestSchema | 
 $credential_id = "credential_id_example"; // string | 
+$credential_update = new \Swagger\Client\Model\CredentialRequestSchema(); // \Swagger\Client\Model\CredentialRequestSchema | 
 $engine_tenant_name = "engine_tenant_name_example"; // string | If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains 'tenantName' which should be used for any permissions that need to be scoped to a particular tenant.
 
 try {
-    $apiInstance->updateCredential($body, $credential_id, $engine_tenant_name);
+    $apiInstance->updateCredential($credential_id, $credential_update, $engine_tenant_name);
 } catch (Exception $e) {
     echo 'Exception when calling AppManagementApi->updateCredential: ', $e->getMessage(), PHP_EOL;
 }
@@ -1092,9 +1112,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\CredentialRequestSchema**](../Model/CredentialRequestSchema.md)|  |
  **credential_id** | **string**|  |
- **engine_tenant_name** | **string**| If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains &#x27;tenantName&#x27; which should be used for any permissions that need to be scoped to a particular tenant. | [optional]
+ **credential_update** | [**\Swagger\Client\Model\CredentialRequestSchema**](../Model/CredentialRequestSchema.md)|  |
+ **engine_tenant_name** | **string**| If specified, the tenant that will be used to store or validate the credentials or token. If not specified, the system data store / settings will be used. Note that PermissionsSchema contains &#39;tenantName&#39; which should be used for any permissions that need to be scoped to a particular tenant. | [optional]
 
 ### Return type
 

@@ -15,5 +15,6 @@ Name | Type | Description | Notes
 **last_runtime_update** | [**\DateTime**](\DateTime.md) | The time of the last runtime update in UTC | [optional] 
 **launch_history_id** | **string** | A unique identifier for this launch history record | [optional] 
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 

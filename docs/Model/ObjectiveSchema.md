@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 **objective_success** | **string** |  | [optional] [default to 'UNKNOWN']
 **previous_objective_success** | **string** |  | [optional] [default to 'UNKNOWN']
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
 
